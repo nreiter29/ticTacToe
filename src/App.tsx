@@ -52,5 +52,3 @@ const App = () => {
 }
 
 export default App
-
-// hall
