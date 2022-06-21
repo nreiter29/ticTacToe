@@ -36,6 +36,19 @@ const App = () => {
   console.log(secondrow)
 
   const round = 'x'
+
+  function updateIndex (index: number, row: number) {
+    if (row === 1) {
+      firstrow.splice(index, 1, 'irgendwos')
+    }
+    if (row === 2) {
+      secondrow.splice(index, 1, 'irgendwos')
+    }
+    if (row === 3) {
+      thirdrow.splice(index, 1, 'irgendwos')
+    }
+  }
+
   return (
     <Container w="100vw" h="100vh" maxW="100vw" bgColor="#1A2A33" display="flex" flexDirection="row" padding="0" justifyContent="space-between">
       <Box w="33vw" justifyContent="center" alignItems="center" display="flex" gap="30px" flexDir="column">
@@ -54,7 +67,7 @@ const App = () => {
           <Box>
             {firstrow.map((item, index) => {
               return (
-                <Link onClick={() => { setCount(count + 1) }} _hover={{ border: 'none' }} key={`${index}benjaminblümchentorte`}>
+                <Link onClick={() => { setCount(count + 1); updateIndex(1, index) }} _hover={{ border: 'none' }} key={`${index}benjaminblümchentorte`}>
                   {(item !== 'o')
                     ? (
                       <Box
@@ -74,7 +87,7 @@ const App = () => {
           <Box>
             {secondrow.map((item, index) => {
               return (
-                <Link onClick={() => { setCount(count + 1); secondrow[index] = 'x'; secondrow.splice(index, 1, agerFarmer) }} _hover={{ border: 'none' }} key={`${index}kinder`}>
+                <Link onClick={() => { setCount(count + 1); secondrow[index] = 'x'; updateIndex(2, index) }} _hover={{ border: 'none' }} key={`${index}kinder`}>
                   {(item !== 'o')
                     ? (
                       <Box
@@ -94,7 +107,7 @@ const App = () => {
           <Box>
             {thirdrow.map((item, index) => {
               return (
-                <Link onClick={() => { setCount(count + 1) }} _hover={{ border: 'none' }} key={`${index}kinderSalami`}>
+                <Link onClick={() => { setCount(count + 1); updateIndex(3, index) }} _hover={{ border: 'none' }} key={`${index}kinderSalami`}>
                   {(item !== 'o')
                     ? (
                       <Box
