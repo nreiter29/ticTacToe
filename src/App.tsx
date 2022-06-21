@@ -1,47 +1,31 @@
-import { Box, Button, Container, Heading, Img, Link, LinkOverlay, Text, useProps } from '@chakra-ui/react'
-import React, { useState } from 'react'
-import { render } from 'react-dom'
-import { load } from 'react-require'
+import { Box, Button, Container, Heading, Img, Link, Text } from '@chakra-ui/react'
+import React, { Fragment, useState } from 'react'
 import agerFarmer from './agerfarmer.png'
 import martinator from './martinator.png'
 import tie from './tie.png'
 
 const App = () => {
-  let [start, setStart] = useState(true)
+  const [start, setStart] = useState(true)
   const [turn, setTurn] = useState(false)
-  const [firstBox, setFirstBox] = useState(false)
-  const [secondBox, setSecondBox] = useState(false)
-  const [thirdBox, setThirdBox] = useState(false)
-  const [fourthBox, setFourthBox] = useState(false)
-  const [fifthBox, setFifthBox] = useState(false)
-  const [sixthBox, setSixthBox] = useState(false)
-  const [seventhBox, setSeventhBox] = useState(false)
-  const [eighthBox, setEighthBox] = useState(false)
-  const [ninthBox, setNinthBox] = useState(false)
   const [count, setCount] = useState(0)
   const [reset, setReset] = useState(false)
-  const agerOrMartinator =
-  [
+  const agerOrMartinator = [
     'o', 'o', 'o',
     'o', 'o', 'o',
     'o', 'o', 'o',
   ]
-  console.log(agerOrMartinator)
 
-  if (firstBox || secondBox || thirdBox || fourthBox || fifthBox || sixthBox || seventhBox || eighthBox || ninthBox) {
-    start = false
-  }
+  const firstrow = [
+    'o', 'o', 'o',
+  ]
+  const secondrow = [
+    'o', 'o', 'o',
+  ]
+  const thirdrow = [
+    'o', 'o', 'o',
+  ]
 
   if (reset) {
-    setFirstBox(false)
-    setSecondBox(false)
-    setThirdBox(false)
-    setFourthBox(false)
-    setFifthBox(false)
-    setSixthBox(false)
-    setSeventhBox(false)
-    setEighthBox(false)
-    setNinthBox(false)
     setStart(true)
     setCount(0)
     setTurn(false)
@@ -49,6 +33,7 @@ const App = () => {
   }
 
   agerOrMartinator[0] = martinator
+  console.log(secondrow)
 
   const round = 'x'
   return (
@@ -65,46 +50,65 @@ const App = () => {
           <Text color="white">Round </Text>
           <Text color="#31C3BD">{round}</Text>
         </Box>
-        {agerOrMartinator.map((item, index) => {
-          return (
-            <Link onClick={() => { setFirstBox(true); setCount(count + 1) }} _hover={{ border: 'none' }} key={`${index}tikTakToeFeed`}>
-              {firstBox ? <Box borderRight="4px" borderBottom="4px" h="204px" w="263px" pt="1px"><Img src={agerOrMartinator[0]} h="150px" w="150px" ml="60px" mt="30px"/></Box> : <Box borderRight="4px" borderBottom="4px" p="25px 100px 25px 100px"><Text color="#1A2A33">o</Text></Box>}
-            </Link>
-          )
-        })}
         <Box w="600px" color="grey" display="flex" fontSize="100px" justifyContent="space-evenly" ml="auto" mr="auto" >
           <Box>
-            <Link onClick={() => { setFirstBox(true); setCount(count + 1) }} _hover={{ border: 'none' }}>
-              {firstBox ? <Box borderRight="4px" borderBottom="4px" h="204px" w="263px" pt="1px"><Img src={agerOrMartinator[0]} h="150px" w="150px" ml="60px" mt="30px"/></Box> : <Box borderRight="4px" borderBottom="4px" p="25px 100px 25px 100px"><Text color="#1A2A33">o</Text></Box>}
-            </Link>
-            <Link onClick={() => { setSecondBox(true); setCount(count + 1) }} _hover={{ border: 'none' }}>
-              {secondBox ? <Box borderRight="4px" borderBottom="4px" h="204px" w="263px" pt="1px"><Img src={agerOrMartinator[3]} h="150px" w="150px" ml="60px" mt="30px"/></Box> : <Box borderRight="4px" borderBottom="4px" p="25px 100px 25px 100px"><Text color="#1A2A33">o</Text></Box>}
-            </Link>
-            <Link onClick={() => { setThirdBox(true); setCount(count + 1) }} _hover={{ border: 'none' }}>
-              {thirdBox ? <Box borderRight="4px" h="200px" w="263px" pt="1px"><Img src={agerOrMartinator[7]} h="150px" w="150px" ml="60px" mt="30px"/></Box> : <Box borderRight="4px" p="25px 100px 25px 100px"><Text color="#1A2A33">o</Text></Box>}
-            </Link>
+            {firstrow.map((item, index) => {
+              return (
+                <Link onClick={() => { setCount(count + 1) }} _hover={{ border: 'none' }} key={`${index}benjaminblümchentorte`}>
+                  {(item !== 'o')
+                    ? (
+                      <Box
+                        borderRight="4px"
+                        borderBottom={index === 2 ? '' : '4px'}
+                        h="204px"
+                        w="263px"
+                        pt="1px"
+                      ><Img src={item} h="150px" w="150px" ml="60px" mt="30px"/>
+                      </Box>
+                      )
+                    : <Box borderRight="4px" borderBottom={index === 2 ? '' : '4px'} p="25px 100px 25px 100px"><Text color="#1A2A33">{item}</Text></Box>}
+                </Link>
+              )
+            })}
           </Box>
           <Box>
-            <Link onClick={() => { setFourthBox(true); setCount(count + 1) }} _hover={{ border: 'none' }}>
-              {fourthBox ? <Box borderRight="4px" borderBottom="4px" h="204px" w="263px" pt="1px"><Img src={agerOrMartinator[1]} h="150px" w="150px" ml="60px" mt="30px"/></Box> : <Box borderRight="4px" borderBottom="4px" p="25px 100px 25px 100px"><Text color="#1A2A33">o</Text></Box>}
-            </Link>
-            <Link onClick={() => { setFifthBox(true); setCount(count + 1) }} _hover={{ border: 'none' }}>
-              {fifthBox ? <Box borderRight="4px" borderBottom="4px" h="204px" w="263px" pt="1px"><Img src={agerOrMartinator[4]} h="150px" w="150px" ml="60px" mt="30px"/></Box> : <Box borderRight="4px" borderBottom="4px" p="25px 100px 25px 100px"><Text color="#1A2A33">o</Text></Box>}
-            </Link>
-            <Link onClick={() => { setSixthBox(true); setCount(count + 1) }} _hover={{ border: 'none' }}>
-              {sixthBox ? <Box borderRight="4px" h="200px" w="263px" pt="1px"><Img src={agerOrMartinator[8]} h="150px" w="150px" ml="60px" mt="30px"/></Box> : <Box borderRight="4px" p="25px 100px 25px 100px"><Text color="#1A2A33">o</Text></Box>}
-            </Link>
+            {secondrow.map((item, index) => {
+              return (
+                <Link onClick={() => { setCount(count + 1); secondrow[index] = 'x'; secondrow.splice(index, 1, agerFarmer) }} _hover={{ border: 'none' }} key={`${index}kinder`}>
+                  {(item !== 'o')
+                    ? (
+                      <Box
+                        borderRight="4px"
+                        borderBottom={index === 2 ? '' : '4px'}
+                        h="204px"
+                        w="263px"
+                        pt="1px"
+                      ><Img src={item} h="150px" w="150px" ml="60px" mt="30px"/>
+                      </Box>
+                      )
+                    : <Box borderRight="4px" borderBottom={index === 2 ? '' : '4px'} p="25px 100px 25px 100px"><Text color="#1A2A33">{item}</Text></Box>}
+                </Link>
+              )
+            })}
           </Box>
           <Box>
-            <Link onClick={() => { setSeventhBox(true); setCount(count + 1) }} _hover={{ border: 'none' }}>
-              {seventhBox ? <Box borderBottom="4px" h="204px" w="259px" pt="1px"><Img src={agerOrMartinator[2]} h="150px" w="150px" ml="60px" mt="30px"/></Box> : <Box borderBottom="4px" p="25px 100px 25px 100px"><Text color="#1A2A33">o</Text></Box>}
-            </Link>
-            <Link onClick={() => { setEighthBox(true); setCount(count + 1) }} _hover={{ border: 'none' }}>
-              {eighthBox ? <Box borderBottom="4px" h="204px" w="259px" pt="1px"><Img src={agerOrMartinator[6]} h="150px" w="150px" ml="60px" mt="30px"/></Box> : <Box borderBottom="4px" p="25px 100px 25px 100px"><Text color="#1A2A33">o</Text></Box>}
-            </Link>
-            <Link onClick={() => { setNinthBox(true); setCount(count + 1) }} _hover={{ border: 'none' }}>
-              {ninthBox ? <Box h="200px" w="259px" pt="1px"><Img src={agerOrMartinator[9]} h="150px" w="150px" ml="60px" mt="30px"/></Box> : <Box p="25px 100px 25px 100px"><Text color="#1A2A33">o</Text></Box>}
-            </Link>
+            {thirdrow.map((item, index) => {
+              return (
+                <Link onClick={() => { setCount(count + 1) }} _hover={{ border: 'none' }} key={`${index}kinderSalami`}>
+                  {(item !== 'o')
+                    ? (
+                      <Box
+                        borderBottom={index === 2 ? '' : '4px'}
+                        h="204px"
+                        w="263px"
+                        pt="1px"
+                      ><Img src={item} h="150px" w="150px" ml="60px" mt="30px"/>
+                      </Box>
+                      )
+                    : <Box borderBottom={index === 2 ? '' : '4px'} p="25px 100px 25px 100px"><Text color="#1A2A33">{item}</Text></Box>}
+                </Link>
+              )
+            })}
           </Box>
         </Box>
         <Box mt="35px">
