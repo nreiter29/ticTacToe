@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.9.3",
     "@undefined/lint": "github:JohnDeved/undefined-lint",
     "framer-motion": "^6.3.11",
+    "module-name": "^0.0.1-security",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
