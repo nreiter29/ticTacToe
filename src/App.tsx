@@ -1,10 +1,12 @@
 import { Box, Button, Container, Heading, Img, Link, Text } from '@chakra-ui/react'
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useMemo, useState } from 'react'
 import agerFarmer from './agerfarmer.png'
 import martinator from './martinator.png'
 import tie from './tie.png'
+import quack from './Quack.mp3'
 
 const App = () => {
+  const sound = useMemo(() => new Audio(quack), [])
   const [start, setStart] = useState(true)
   const [turn, setTurn] = useState(false)
   const [count, setCount] = useState(0)
@@ -125,7 +127,7 @@ const App = () => {
           </Box>
         </Box>
         <Box mt="35px">
-          {!start ? <Button w="262px" bgColor="#65E9E4" h="65px" fontSize="50px" boxShadow="0 8px #118C87" _active={{ boxShadow: '0 8px #23a19d', transform: 'translateY(4px)' }} _hover={{ backgroundColor: '#26bbb6' }} onClick={() => { setStart(true); setReset(true) }}>Reset</Button> : <Button w="262px" bgColor="#FFC860" h="65px" fontSize="50px" boxShadow="0 8px #CC8B13" _active={{ boxShadow: '0 8px #9b680b', transform: 'translateY(4px)' }} _hover={{ backgroundColor: '#ffb01d' }} onClick={() => setStart(false)}>Start</Button>}
+          {!start ? <Button w="262px" bgColor="#65E9E4" h="65px" fontSize="50px" boxShadow="0 8px #118C87" _active={{ boxShadow: '0 8px #23a19d', transform: 'translateY(4px)' }} _hover={{ backgroundColor: '#26bbb6' }} onClick={() => { setStart(true); setReset(true); sound.play() }}>Reset</Button> : <Button w="262px" bgColor="#FFC860" h="65px" fontSize="50px" boxShadow="0 8px #CC8B13" _active={{ boxShadow: '0 8px #9b680b', transform: 'translateY(4px)' }} _hover={{ backgroundColor: '#ffb01d' }} onClick={() => { setStart(false); sound.play() }}>Start</Button>}
         </Box>
         <Box display="flex" justifyContent="center" mt="25px" alignItems="center">
           <Img src={tie} h="80px"/>
