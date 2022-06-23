@@ -1,11 +1,10 @@
 // imports
 import { Box, Button, Container, Heading, Img, Link, Text } from '@chakra-ui/react'
-import React, { Fragment, useMemo, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import agerFarmer from './agerfarmer.png'
 import martinator from './martinator.png'
 import tie from './tie.png'
 import quack from './Quack.mp3'
-import { render } from 'react-dom'
 import badAgerFarmer from './agerfarmer-mlg.png'
 import badMartinator from './martinator-mlg.png'
 
