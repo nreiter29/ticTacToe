@@ -18,9 +18,9 @@ const App = () => {
   const [turn, setTurn] = useState('')
   const [end, setEnd] = useState(false)
 
-  let [firstRow, setFirstRow] = useState(['o', 'o', 'o'])
-  let [secondRow, setSecondRow] = useState(['o', 'o', 'o'])
-  let [thirdRow, setThirdRow] = useState(['o', 'o', 'o'])
+  const [firstRow, setFirstRow] = useState(['o', 'o', 'o'])
+  const [secondRow, setSecondRow] = useState(['o', 'o', 'o'])
+  const [thirdRow, setThirdRow] = useState(['o', 'o', 'o'])
 
   const [image, setImage] = useState(agerFarmer)
 
@@ -67,75 +67,90 @@ const App = () => {
       thirdRow.splice(index, 1, image)
     }
   }
-  console.log(firstRow)
+
+  function martinWin () {
+    setMartinatorWinCount(martinatorWinCount + 1)
+  }
+
+  function agerFarmerWin () {
+    setAgerWinCount(agerWinCount + 1)
+  }
+
+  function tieTie () {
+    setTieCount(tieCount + 1)
+  }
 
   if (firstRow[0] === agerFarmer && firstRow[1] === agerFarmer && firstRow[2] === agerFarmer) {
-    firstRow = [badAgerFarmer, badAgerFarmer, badAgerFarmer]
-  }
-  if (secondRow[0] === agerFarmer && secondRow[1] === agerFarmer && secondRow[2] === agerFarmer) {
-    secondRow = [badAgerFarmer, badAgerFarmer, badAgerFarmer]
-  }
-  if (thirdRow[0] === agerFarmer && thirdRow[1] === agerFarmer && thirdRow[2] === agerFarmer) {
-    thirdRow = [badAgerFarmer, badAgerFarmer, badAgerFarmer]
-  }
-  if (firstRow[0] === martinator && firstRow[1] === martinator && firstRow[2] === martinator) {
-    firstRow = [badMartinator, badMartinator, badMartinator]
-  }
-  if (secondRow[0] === martinator && secondRow[1] === martinator && secondRow[2] === martinator) {
-    secondRow = [badMartinator, badMartinator, badMartinator]
-  }
-  if (thirdRow[0] === martinator && thirdRow[1] === martinator && thirdRow[2] === martinator) {
-    thirdRow = [badMartinator, badMartinator, badMartinator]
-  }
-  if (firstRow[0] === agerFarmer && secondRow[0] === agerFarmer && thirdRow[0] === agerFarmer) {
-    firstRow[0] = badAgerFarmer
-    secondRow[0] = badAgerFarmer
-    thirdRow[0] = badAgerFarmer
-  }
-  if (firstRow[1] === agerFarmer && secondRow[1] === agerFarmer && thirdRow[1] === agerFarmer) {
-    firstRow[1] = badAgerFarmer
-    secondRow[1] = badAgerFarmer
-    thirdRow[1] = badAgerFarmer
-  }
-  if (firstRow[2] === agerFarmer && secondRow[2] === agerFarmer && thirdRow[2] === agerFarmer) {
-    firstRow[2] = badAgerFarmer
-    secondRow[2] = badAgerFarmer
-    thirdRow[2] = badAgerFarmer
-  }
-  if (firstRow[0] === martinator && secondRow[0] === martinator && thirdRow[0] === martinator) {
-    firstRow[0] = badMartinator
-    secondRow[0] = badMartinator
-    thirdRow[0] = badMartinator
-  }
-  if (firstRow[1] === martinator && secondRow[1] === martinator && thirdRow[1] === martinator) {
-    firstRow[1] = badMartinator
-    secondRow[1] = badMartinator
-    thirdRow[1] = badMartinator
-  }
-  if (firstRow[2] === martinator && secondRow[2] === martinator && thirdRow[2] === martinator) {
-    firstRow[2] = badMartinator
-    secondRow[2] = badMartinator
-    thirdRow[2] = badMartinator
-  }
-  if (firstRow[0] === agerFarmer && secondRow[1] === agerFarmer && thirdRow[2] === agerFarmer) {
-    firstRow[0] = badAgerFarmer
-    secondRow[1] = badAgerFarmer
-    thirdRow[2] = badAgerFarmer
-  }
-  if (firstRow[2] === agerFarmer && secondRow[1] === agerFarmer && thirdRow[0] === agerFarmer) {
-    firstRow[2] = badAgerFarmer
-    secondRow[1] = badAgerFarmer
-    thirdRow[0] = badAgerFarmer
-  }
-  if (firstRow[0] === martinator && secondRow[1] === martinator && thirdRow[2] === martinator) {
-    firstRow[0] = badMartinator
-    secondRow[1] = badMartinator
-    thirdRow[2] = badMartinator
-  }
-  if (firstRow[2] === martinator && secondRow[1] === martinator && thirdRow[0] === martinator) {
-    firstRow[2] = badMartinator
-    secondRow[1] = badMartinator
-    thirdRow[0] = badMartinator
+    setFirstRow([badAgerFarmer, badAgerFarmer, badAgerFarmer])
+    agerFarmerWin()
+  } else if (secondRow[0] === agerFarmer && secondRow[1] === agerFarmer && secondRow[2] === agerFarmer) {
+    setSecondRow([badAgerFarmer, badAgerFarmer, badAgerFarmer])
+    agerFarmerWin()
+  } else if (thirdRow[0] === agerFarmer && thirdRow[1] === agerFarmer && thirdRow[2] === agerFarmer) {
+    setThirdRow([badAgerFarmer, badAgerFarmer, badAgerFarmer])
+    agerFarmerWin()
+  } else if (firstRow[0] === martinator && firstRow[1] === martinator && firstRow[2] === martinator) {
+    setFirstRow([badMartinator, badMartinator, badMartinator])
+    martinWin()
+  } else if (secondRow[0] === martinator && secondRow[1] === martinator && secondRow[2] === martinator) {
+    setSecondRow([badMartinator, badMartinator, badMartinator])
+    martinWin()
+  } else if (thirdRow[0] === martinator && thirdRow[1] === martinator && thirdRow[2] === martinator) {
+    setThirdRow([badMartinator, badMartinator, badMartinator])
+    martinWin()
+  } else if (firstRow[0] === agerFarmer && secondRow[0] === agerFarmer && thirdRow[0] === agerFarmer) {
+    setFirstRow([badAgerFarmer, firstRow[1], firstRow[2]])
+    setSecondRow([badAgerFarmer, secondRow[1], secondRow[2]])
+    setThirdRow([badAgerFarmer, thirdRow[1], thirdRow[2]])
+    agerFarmerWin()
+  } else if (firstRow[1] === agerFarmer && secondRow[1] === agerFarmer && thirdRow[1] === agerFarmer) {
+    setFirstRow([firstRow[0], badAgerFarmer, firstRow[2]])
+    setSecondRow([secondRow[0], badAgerFarmer, secondRow[2]])
+    setThirdRow([thirdRow[0], badAgerFarmer, thirdRow[2]])
+    agerFarmerWin()
+  } else if (firstRow[2] === agerFarmer && secondRow[2] === agerFarmer && thirdRow[2] === agerFarmer) {
+    setFirstRow([firstRow[0], firstRow[1], badAgerFarmer])
+    setSecondRow([secondRow[0], secondRow[1], badAgerFarmer])
+    setThirdRow([thirdRow[0], thirdRow[1], badAgerFarmer])
+    agerFarmerWin()
+  } else if (firstRow[0] === martinator && secondRow[0] === martinator && thirdRow[0] === martinator) {
+    setFirstRow([badMartinator, firstRow[1], firstRow[2]])
+    setSecondRow([badMartinator, secondRow[1], secondRow[2]])
+    setThirdRow([badMartinator, thirdRow[1], thirdRow[2]])
+    martinWin()
+  } else if (firstRow[1] === martinator && secondRow[1] === martinator && thirdRow[1] === martinator) {
+    setFirstRow([firstRow[0], badMartinator, firstRow[2]])
+    setSecondRow([secondRow[0], badMartinator, secondRow[2]])
+    setThirdRow([thirdRow[0], badMartinator, thirdRow[2]])
+    agerFarmerWin()
+    martinWin()
+  } else if (firstRow[2] === martinator && secondRow[2] === martinator && thirdRow[2] === martinator) {
+    setFirstRow([firstRow[0], firstRow[1], badMartinator])
+    setSecondRow([secondRow[0], secondRow[1], badMartinator])
+    setThirdRow([thirdRow[0], thirdRow[1], badMartinator])
+    martinWin()
+  } else if (firstRow[0] === agerFarmer && secondRow[1] === agerFarmer && thirdRow[2] === agerFarmer) {
+    setFirstRow([badAgerFarmer, firstRow[1], firstRow[2]])
+    setSecondRow([firstRow[0], badAgerFarmer, secondRow[2]])
+    setThirdRow([firstRow[0], firstRow[1], badAgerFarmer])
+    agerFarmerWin()
+  } else if (firstRow[2] === agerFarmer && secondRow[1] === agerFarmer && thirdRow[0] === agerFarmer) {
+    setFirstRow([firstRow[0], firstRow[1], badAgerFarmer])
+    setSecondRow([firstRow[0], badAgerFarmer, secondRow[2]])
+    setThirdRow([badAgerFarmer, firstRow[1], thirdRow[2]])
+    agerFarmerWin()
+  } else if (firstRow[0] === martinator && secondRow[1] === martinator && thirdRow[2] === martinator) {
+    setFirstRow([badMartinator, firstRow[1], firstRow[2]])
+    setSecondRow([firstRow[0], badMartinator, secondRow[2]])
+    setThirdRow([firstRow[0], firstRow[1], badMartinator])
+    martinWin()
+  } else if (firstRow[2] === martinator && secondRow[1] === martinator && thirdRow[0] === martinator) {
+    setFirstRow([firstRow[0], firstRow[1], badMartinator])
+    setSecondRow([firstRow[0], badMartinator, secondRow[2]])
+    setThirdRow([badMartinator, firstRow[1], thirdRow[2]])
+    martinWin()
+  } else if (end) {
+    tieTie()
   }
 
   if (round === 70) {
@@ -189,7 +204,7 @@ const App = () => {
           <Heading color="#B9CFF0" fontSize="150px" fontFamily="sans-serif" fontWeight={500} mt="75px">TicTacToe</Heading>
         </Box>
         <Box display="flex" justifyContent="space-evenly" fontSize="80px" w="340px" ml="auto" mr="auto" mb="50px">
-          <Text color="white">Round </Text>
+          <Text color="white">Round</Text>
           <Text color="#31C3BD">{round}</Text>
         </Box>
         <Box w="600px" color="grey" display="flex" fontSize="100px" justifyContent="space-evenly" ml="auto" mr="auto" >
