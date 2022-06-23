@@ -81,8 +81,9 @@ const App = () => {
   }
 
   if (firstRow[0] === agerFarmer && firstRow[1] === agerFarmer && firstRow[2] === agerFarmer) {
-    setFirstRow([badAgerFarmer, badAgerFarmer, badAgerFarmer])
+    setEnd(true)
     agerFarmerWin()
+    setFirstRow([badAgerFarmer, badAgerFarmer, badAgerFarmer])
   } else if (secondRow[0] === agerFarmer && secondRow[1] === agerFarmer && secondRow[2] === agerFarmer) {
     setSecondRow([badAgerFarmer, badAgerFarmer, badAgerFarmer])
     agerFarmerWin()
@@ -159,9 +160,17 @@ const App = () => {
     setReset(false)
   }
 
+  function resetTrue () {
+    setReset(true)
+  }
+
   if (end) {
     setRound(round + 1)
     setTurn('')
+    setFirstRow([firstRow[0], firstRow[1], firstRow[2]])
+    setSecondRow([secondRow[0], secondRow[1], secondRow[2]])
+    setThirdRow([thirdRow[0], thirdRow[1], thirdRow[2]])
+    setTimeout(resetTrue, 600)
     setEnd(false)
   }
 
