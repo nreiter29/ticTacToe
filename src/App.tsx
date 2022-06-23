@@ -313,6 +313,7 @@ const App = () => {
         <Text color="#31C3BD" fontSize="80px">{martinatorWinCount}</Text>
         {showMartinator()}
       </Box>
+      <Img src="https://deepsource.io/gh/nreiter29/ticTacToe.svg/?label=active+issues&show_trend=true&token=9XtQOWOsWsEbL-yPWEf70JPy)%5D(https://deepsource.io/gh/nreiter29/ticTacToe/?ref=repository-badge" w="400px" position="absolute" left="full" right="25px" top="full" bottom="25px"/>
     </Container>
   )
 }
