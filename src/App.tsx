@@ -22,6 +22,8 @@ const App = () => {
   const [secondRow, setSecondRow] = useState(['o', 'o', 'o'])
   const [thirdRow, setThirdRow] = useState(['o', 'o', 'o'])
 
+  const [finalEnd, setFinalEnd] = useState(false)
+
   const [image, setImage] = useState(agerFarmer)
 
   if (reset) {
@@ -36,6 +38,7 @@ const App = () => {
     setImage(agerFarmer)
     setTurn('')
     setEnd(false)
+    setFinalEnd(false)
   }
 
   const [round, setRound] = useState(0)
@@ -166,27 +169,14 @@ const App = () => {
     setThirdRow([badMartinator, firstRow[1], thirdRow[2]])
     martinWin()
     setEnd(true)
-  } else if (end) {
+  } else if (firstRow[0] !== 'x' && firstRow[1] !== 'x' && firstRow[2] !== 'x' && secondRow[0] !== 'x' && secondRow[1] !== 'x' && secondRow[2] !== 'x' && thirdRow[0] !== 'x' && thirdRow[1] !== 'x' && thirdRow[2] !== 'x' && end) {
     tieTie()
-  }
-
-  if (round === 70) {
-    setStart(true)
-    setCount(0)
-    setReset(false)
-  }
-
-  function resetTrue () {
-    setReset(true)
   }
 
   if (end) {
     setRound(round + 1)
     setTurn('')
-    setFirstRow([firstRow[0], firstRow[1], firstRow[2]])
-    setSecondRow([secondRow[0], secondRow[1], secondRow[2]])
-    setThirdRow([thirdRow[0], thirdRow[1], thirdRow[2]])
-    setTimeout(resetTrue, 600)
+    setFinalEnd(true)
     setEnd(false)
   }
 
@@ -248,7 +238,7 @@ const App = () => {
                       ><Img src={item} h="150px" w="150px" ml="60px" mt="30px"/>
                       </Box>
                       )
-                    : <Box borderRight="4px" borderBottom={index === 2 ? '' : '4px'} p="25px 100px 25px 100px" onClick={() => { setCount(count + 1); updateIndex(index, 0); setStart(false); sound.play() }}><Text color="#1A2A33">{item}</Text></Box>}
+                    : !finalEnd ? <Box borderRight="4px" borderBottom={index === 2 ? '' : '4px'} p="25px 100px 25px 100px" onClick={() => { setCount(count + 1); updateIndex(index, 0); setStart(false); sound.play() }}><Text color="#1A2A33">{item}</Text></Box> : <Box borderRight="4px" borderBottom={index === 2 ? '' : '4px'} p="25px 100px 25px 100px"><Text color="#1A2A33">{item}</Text></Box>}
                 </Link>
               )
             })}
@@ -268,7 +258,7 @@ const App = () => {
                       ><Img src={item} h="150px" w="150px" ml="60px" mt="30px"/>
                       </Box>
                       )
-                    : <Box borderRight="4px" borderBottom={index === 2 ? '' : '4px'} p="25px 100px 25px 100px" onClick={() => { setCount(count + 1); updateIndex(index, 1); setStart(false); sound.play() }}><Text color="#1A2A33">{item}</Text></Box>}
+                    : !finalEnd ? <Box borderRight="4px" borderBottom={index === 2 ? '' : '4px'} p="25px 100px 25px 100px" onClick={() => { setCount(count + 1); updateIndex(index, 1); setStart(false); sound.play() }}><Text color="#1A2A33">{item}</Text></Box> : <Box borderRight="4px" borderBottom={index === 2 ? '' : '4px'} p="25px 100px 25px 100px" ><Text color="#1A2A33">{item}</Text></Box>}
                 </Link>
               )
             })}
@@ -287,7 +277,7 @@ const App = () => {
                       ><Img src={item} h="150px" w="150px" ml="60px" mt="30px"/>
                       </Box>
                       )
-                    : <Box borderBottom={index === 2 ? '' : '4px'} p="25px 100px 25px 100px" onClick={() => { setCount(count + 1); updateIndex(index, 2); setStart(false); sound.play() }}><Text color="#1A2A33">{item}</Text></Box>}
+                    : !finalEnd ? <Box borderBottom={index === 2 ? '' : '4px'} p="25px 100px 25px 100px" onClick={() => { setCount(count + 1); updateIndex(index, 2); setStart(false); sound.play() }}><Text color="#1A2A33">{item}</Text></Box> : <Box borderBottom={index === 2 ? '' : '4px'} p="25px 100px 25px 100px" ><Text color="#1A2A33">{item}</Text></Box>}
                 </Link>
               )
             })}
