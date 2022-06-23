@@ -93,7 +93,11 @@ const App = () => {
 
   // tie function
   function tieTie () {
-    setTieCount(tieCount + 1)
+    if (firstRow[0] === badAgerFarmer || firstRow[1] === badAgerFarmer || firstRow[2] === badAgerFarmer || secondRow[0] === badMartinator || secondRow[1] === badMartinator || secondRow[2] === badMartinator || thirdRow[0] === badAgerFarmer || thirdRow[1] === badAgerFarmer || thirdRow[2] === badAgerFarmer || firstRow[0] === badMartinator || firstRow[1] === badMartinator || firstRow[2] === badMartinator || secondRow[0] === badAgerFarmer || secondRow[1] === badAgerFarmer || secondRow[2] === badAgerFarmer || thirdRow[0] === badMartinator || thirdRow[1] === badMartinator || thirdRow[2] === badMartinator) {
+      return null
+    } else {
+      setTieCount(tieCount + 1)
+    }
   }
 
   // if statement for ending game
@@ -256,7 +260,7 @@ const App = () => {
                       ><Img src={item} h="150px" w="150px" ml="60px" mt="30px"/>
                       </Box>
                       )
-                    : !finalEnd ? <Box borderRight="4px" borderBottom={index === 2 ? '' : '4px'} p="25px 100px 25px 100px" onClick={() => { setCount(count + 1); updateIndex(index, 0); setStart(false); sound.play() }}><Text color="#1A2A33">{item}</Text></Box> : <Box borderRight="4px" borderBottom={index === 2 ? '' : '4px'} p="25px 100px 25px 100px"><Text color="#1A2A33">{item}</Text></Box>}
+                    : !finalEnd ? <Box borderRight="4px" h="204px" w="263px" borderBottom={index === 2 ? '' : '4px'} p="25px 100px 25px 100px" onClick={() => { setCount(count + 1); updateIndex(index, 0); setStart(false); sound.play() }}><Text color="#1A2A33">{item}</Text></Box> : <Box borderRight="4px" h="204px" w="263px" borderBottom={index === 2 ? '' : '4px'} p="25px 100px 25px 100px"><Text color="#1A2A33">{item}</Text></Box>}
                 </Link>
               )
             })}
@@ -276,7 +280,7 @@ const App = () => {
                       ><Img src={item} h="150px" w="150px" ml="60px" mt="30px"/>
                       </Box>
                       )
-                    : !finalEnd ? <Box borderRight="4px" borderBottom={index === 2 ? '' : '4px'} p="25px 100px 25px 100px" onClick={() => { setCount(count + 1); updateIndex(index, 1); setStart(false); sound.play() }}><Text color="#1A2A33">{item}</Text></Box> : <Box borderRight="4px" borderBottom={index === 2 ? '' : '4px'} p="25px 100px 25px 100px" ><Text color="#1A2A33">{item}</Text></Box>}
+                    : !finalEnd ? <Box borderRight="4px" h="204px" w="263px" borderBottom={index === 2 ? '' : '4px'} p="25px 100px 25px 100px" onClick={() => { setCount(count + 1); updateIndex(index, 1); setStart(false); sound.play() }}><Text color="#1A2A33">{item}</Text></Box> : <Box borderRight="4px" h="204px" w="263px" borderBottom={index === 2 ? '' : '4px'} p="25px 100px 25px 100px" ><Text color="#1A2A33">{item}</Text></Box>}
                 </Link>
               )
             })}
@@ -295,7 +299,7 @@ const App = () => {
                       ><Img src={item} h="150px" w="150px" ml="60px" mt="30px"/>
                       </Box>
                       )
-                    : !finalEnd ? <Box borderBottom={index === 2 ? '' : '4px'} p="25px 100px 25px 100px" onClick={() => { setCount(count + 1); updateIndex(index, 2); setStart(false); sound.play() }}><Text color="#1A2A33">{item}</Text></Box> : <Box borderBottom={index === 2 ? '' : '4px'} p="25px 100px 25px 100px" ><Text color="#1A2A33">{item}</Text></Box>}
+                    : !finalEnd ? <Box borderBottom={index === 2 ? '' : '4px'} h="204px" w="263px" p="25px 100px 25px 100px" onClick={() => { setCount(count + 1); updateIndex(index, 2); setStart(false); sound.play() }}><Text color="#1A2A33">{item}</Text></Box> : <Box borderBottom={index === 2 ? '' : '4px'} h="204px" w="263px" p="25px 100px 25px 100px" ><Text color="#1A2A33">{item}</Text></Box>}
                 </Link>
               )
             })}
