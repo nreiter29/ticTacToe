@@ -5,16 +5,24 @@ import martinator from './martinator.png'
 import tie from './tie.png'
 import quack from './Quack.mp3'
 import { render } from 'react-dom'
+import badAgerFarmer from './agerfarmer-mlg.png'
+import badMartinator from './martinator-mlg.png'
 
 const App = () => {
   const sound = useMemo(() => new Audio(quack), [])
   const [start, setStart] = useState(true)
   const [count, setCount] = useState(0)
   const [reset, setReset] = useState(false)
+  const [martinatorCount, setMartinatorCount] = useState(0)
+  const [agerFarmerCount, setAgerFarmerCount] = useState(0)
+  const [turn, setTurn] = useState('')
+  const [end, setEnd] = useState(false)
 
   const [firstRow, setFirstRow] = useState(['o', 'o', 'o'])
   const [secondRow, setSecondRow] = useState(['o', 'o', 'o'])
   const [thirdRow, setThirdRow] = useState(['o', 'o', 'o'])
+
+  const [image, setImage] = useState(agerFarmer)
 
   if (reset) {
     setStart(true)
@@ -23,16 +31,28 @@ const App = () => {
     setFirstRow(['o', 'o', 'o'])
     setSecondRow(['o', 'o', 'o'])
     setThirdRow(['o', 'o', 'o'])
+    setMartinatorCount(0)
+    setAgerFarmerCount(0)
+    setImage(agerFarmer)
+    setTurn('')
+    setEnd(false)
   }
-  const [image, setImage] = useState(agerFarmer)
 
-  const [round, setRound] = useState(69)
+  const [round, setRound] = useState(0)
 
   function updateIndex (index: number, row: number) {
     if (count % 2 === 0) {
-      setImage(martinator)
-    } else if (count % 2 === 1) {
-      setImage(agerFarmer)
+      if (martinatorCount !== 4) {
+        setImage(martinator)
+        setMartinatorCount(martinatorCount + 1)
+        setTurn('martinator')
+      } else setEnd(true)
+    } else if (count % 2 !== 0) {
+      if (agerFarmerCount !== 5) {
+        setImage(agerFarmer)
+        setAgerFarmerCount(agerFarmerCount + 1)
+        setTurn('agerFarmer')
+      } else setEnd(true)
     }
     if (row === 0) {
       firstRow.splice(index, 1, image)
@@ -44,19 +64,59 @@ const App = () => {
       thirdRow.splice(index, 1, image)
     }
   }
+  console.log(firstRow)
+
+  if (firstRow === [agerFarmer, agerFarmer, agerFarmer]) {
+    setImage(badAgerFarmer)
+    setEnd(true)
+    console.log('GEHT')
+  }
 
   if (round === 70) {
     setStart(true)
     setCount(0)
     setReset(false)
   }
-  console.log(count)
+
+  if (end) {
+    setRound(round + 1)
+    setTurn('')
+    setEnd(false)
+  }
+
+  function showAgerFarmer () {
+    if (turn === 'martinator') return
+    if (turn === '') {
+      return (
+        <Img src={agerFarmer} alt="Ager Farmer" w="220px" h="220px"/>
+      )
+    }
+    if (turn === 'agerFarmer') {
+      return (
+        <Img src={agerFarmer} alt="Ager Farmer" w="220px" h="220px"/>
+      )
+    }
+  }
+
+  function showMartinator () {
+    if (turn === 'agerFarmer') return
+    if (turn === '') {
+      return (
+        <Img src={martinator} alt="Martinator" w="220px" h="220px"/>
+      )
+    }
+    if (turn === 'martinator') {
+      return (
+        <Img src={martinator} alt="Martinator" w="220px" h="220px"/>
+      )
+    }
+  }
 
   return (
     <Container w="100vw" h="100vh" maxW="100vw" bgColor="#1A2A33" display="flex" flexDirection="row" padding="0" justifyContent="space-between">
       <Box w="33vw" justifyContent="center" alignItems="center" display="flex" gap="30px" flexDir="column">
         <Text color="#31C3BD" fontSize="80px">1</Text>
-        <Img src={agerFarmer} alt="Ager Farmer" w="220px" h="220px"/>
+        {showAgerFarmer()}
       </Box>
       <Box textAlign="center">
         <Box>
@@ -128,7 +188,7 @@ const App = () => {
           </Box>
         </Box>
         <Box mt="35px">
-          {!start ? <Button w="262px" bgColor="#65E9E4" h="65px" fontSize="50px" boxShadow="0 8px #118C87" _active={{ boxShadow: '0 8px #23a19d', transform: 'translateY(4px)' }} _hover={{ backgroundColor: '#26bbb6' }} onClick={() => { setStart(true); setReset(true); sound.play() }}>Reset</Button> : <Button w="262px" bgColor="#FFC860" h="65px" fontSize="50px" boxShadow="0 8px #CC8B13" _active={{ boxShadow: '0 8px #9b680b', transform: 'translateY(4px)' }} _hover={{ backgroundColor: '#ffb01d' }} onClick={() => { setStart(false); sound.play() }}>Start</Button>}
+          {!start ? <Button w="262px" bgColor="#65E9E4" h="65px" fontSize="50px" boxShadow="0 8px #118C87" _active={{ boxShadow: '0 8px #23a19d', transform: 'translateY(4px)' }} _hover={{ backgroundColor: '#26bbb6' }} onClick={() => { setStart(true); setReset(true) }}>Reset</Button> : <Button w="262px" bgColor="#FFC860" h="65px" fontSize="50px" boxShadow="0 8px #CC8B13" _active={{ boxShadow: '0 8px #9b680b', transform: 'translateY(4px)' }} _hover={{ backgroundColor: '#ffb01d' }} onClick={() => { setStart(false); setTurn(true) }}>Start</Button>}
         </Box>
         <Box display="flex" justifyContent="center" mt="25px" alignItems="center">
           <Img src={tie} h="80px"/>
@@ -137,7 +197,7 @@ const App = () => {
       </Box>
       <Box w="33vw" justifyContent="center" alignItems="center" display="flex" gap="30px" flexDir="column">
         <Text color="#31C3BD" fontSize="80px">7</Text>
-        <Img src={martinator} alt="Ager Farmer" h="220px"/>
+        {showMartinator()}
       </Box>
     </Container>
   )
