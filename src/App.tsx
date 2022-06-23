@@ -238,7 +238,7 @@ const App = () => {
           {showAgerFarmer()}
         </Box>
       </Hide>
-      <Box textAlign="center" ml="auto" mr="auto">
+      <Box textAlign="center" ml="auto" mr="auto" mt="auto" mb="auto">
         <Box>
           <Heading color="#B9CFF0" fontSize="150px" fontFamily="sans-serif" fontWeight={500} mt="75px">TicTacToe</Heading>
         </Box>
@@ -310,10 +310,12 @@ const App = () => {
         <Box mt="35px">
           {!start ? <Button w="262px" bgColor="#65E9E4" h="65px" fontSize="50px" boxShadow="0 8px #118C87" _active={{ boxShadow: '0 8px #23a19d', transform: 'translateY(4px)' }} _hover={{ backgroundColor: '#26bbb6' }} onClick={() => { setStart(true); setReset(true) }}>Reset</Button> : <Button w="262px" bgColor="#FFC860" h="65px" fontSize="50px" boxShadow="0 8px #CC8B13" _active={{ boxShadow: '0 8px #9b680b', transform: 'translateY(4px)' }} _hover={{ backgroundColor: '#ffb01d' }} onClick={() => { setStart(false); setTurn('agerFarmer') }}>Start</Button>}
         </Box>
-        <Box display="flex" justifyContent="center" mt="25px" alignItems="center">
-          <Img src={tie} h="80px"/>
-          <Text color="#31C3BD" fontSize="80px">{tieCount}</Text>
-        </Box>
+        <Hide below="xl">
+          <Box display="flex" justifyContent="center" mt="25px" alignItems="center">
+            <Img src={tie} h="80px"/>
+            <Text color="#31C3BD" fontSize="80px">{tieCount}</Text>
+          </Box>
+        </Hide>
       </Box>
       <Hide below="xl">
         <Box w="33vw" justifyContent="center" alignItems="center" display="flex" gap="30px" flexDir="column">
