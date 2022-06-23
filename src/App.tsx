@@ -161,33 +161,33 @@ const App = () => {
     setEnd(true)
   } else if (firstRow[0] === agerFarmer && secondRow[1] === agerFarmer && thirdRow[2] === agerFarmer) {
     setFirstRow([badAgerFarmer, firstRow[1], firstRow[2]])
-    setSecondRow([firstRow[0], badAgerFarmer, secondRow[2]])
-    setThirdRow([firstRow[0], firstRow[1], badAgerFarmer])
+    setSecondRow([secondRow[0], badAgerFarmer, secondRow[2]])
+    setThirdRow([thirdRow[0], thirdRow[1], badAgerFarmer])
     agerFarmerWin()
     setEnd(true)
   } else if (firstRow[2] === agerFarmer && secondRow[1] === agerFarmer && thirdRow[0] === agerFarmer) {
     setFirstRow([firstRow[0], firstRow[1], badAgerFarmer])
-    setSecondRow([firstRow[0], badAgerFarmer, secondRow[2]])
-    setThirdRow([badAgerFarmer, firstRow[1], thirdRow[2]])
+    setSecondRow([secondRow[0], badAgerFarmer, secondRow[2]])
+    setThirdRow([badAgerFarmer, thirdRow[1], thirdRow[2]])
     agerFarmerWin()
     setEnd(true)
   } else if (firstRow[0] === martinator && secondRow[1] === martinator && thirdRow[2] === martinator) {
     setFirstRow([badMartinator, firstRow[1], firstRow[2]])
-    setSecondRow([firstRow[0], badMartinator, secondRow[2]])
-    setThirdRow([firstRow[0], firstRow[1], badMartinator])
+    setSecondRow([secondRow[0], badMartinator, secondRow[2]])
+    setThirdRow([thirdRow[0], thirdRow[1], badMartinator])
     martinWin()
     setEnd(true)
   } else if (firstRow[2] === martinator && secondRow[1] === martinator && thirdRow[0] === martinator) {
     setFirstRow([firstRow[0], firstRow[1], badMartinator])
-    setSecondRow([firstRow[0], badMartinator, secondRow[2]])
-    setThirdRow([badMartinator, firstRow[1], thirdRow[2]])
+    setSecondRow([secondRow[0], badMartinator, secondRow[2]])
+    setThirdRow([badMartinator, thirdRow[1], thirdRow[2]])
     martinWin()
     setEnd(true)
   } else if (firstRow[0] !== 'x' && firstRow[1] !== 'x' && firstRow[2] !== 'x' && secondRow[0] !== 'x' && secondRow[1] !== 'x' && secondRow[2] !== 'x' && thirdRow[0] !== 'x' && thirdRow[1] !== 'x' && thirdRow[2] !== 'x' && end) {
     tieTie()
   }
 
-  // end of game
+  // end option
   if (end) {
     setRound(round + 1)
     setTurn('')
