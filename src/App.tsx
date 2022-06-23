@@ -219,7 +219,7 @@ const App = () => {
     if (turn === 'agerFarmer') return
     if (turn === '') {
       return (
-        <Img src={martinator} alt="Martinator" w="220px" h="220px"/>
+        <Img src={martinator} alt="Martinator" w="180px" h="220px"/>
       )
     }
     if (turn === 'martinator') {
