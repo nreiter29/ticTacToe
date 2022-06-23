@@ -80,7 +80,6 @@ const App = () => {
       thirdRow.splice(index, 1, image)
     }
   }
-  let a
 
   // martinator win function
   function martinWin () {
