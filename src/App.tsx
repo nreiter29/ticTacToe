@@ -87,69 +87,85 @@ const App = () => {
   } else if (secondRow[0] === agerFarmer && secondRow[1] === agerFarmer && secondRow[2] === agerFarmer) {
     setSecondRow([badAgerFarmer, badAgerFarmer, badAgerFarmer])
     agerFarmerWin()
+    setEnd(true)
   } else if (thirdRow[0] === agerFarmer && thirdRow[1] === agerFarmer && thirdRow[2] === agerFarmer) {
     setThirdRow([badAgerFarmer, badAgerFarmer, badAgerFarmer])
     agerFarmerWin()
+    setEnd(true)
   } else if (firstRow[0] === martinator && firstRow[1] === martinator && firstRow[2] === martinator) {
     setFirstRow([badMartinator, badMartinator, badMartinator])
     martinWin()
+    setEnd(true)
   } else if (secondRow[0] === martinator && secondRow[1] === martinator && secondRow[2] === martinator) {
     setSecondRow([badMartinator, badMartinator, badMartinator])
     martinWin()
+    setEnd(true)
   } else if (thirdRow[0] === martinator && thirdRow[1] === martinator && thirdRow[2] === martinator) {
     setThirdRow([badMartinator, badMartinator, badMartinator])
     martinWin()
+    setEnd(true)
   } else if (firstRow[0] === agerFarmer && secondRow[0] === agerFarmer && thirdRow[0] === agerFarmer) {
     setFirstRow([badAgerFarmer, firstRow[1], firstRow[2]])
     setSecondRow([badAgerFarmer, secondRow[1], secondRow[2]])
     setThirdRow([badAgerFarmer, thirdRow[1], thirdRow[2]])
     agerFarmerWin()
+    setEnd(true)
   } else if (firstRow[1] === agerFarmer && secondRow[1] === agerFarmer && thirdRow[1] === agerFarmer) {
     setFirstRow([firstRow[0], badAgerFarmer, firstRow[2]])
     setSecondRow([secondRow[0], badAgerFarmer, secondRow[2]])
     setThirdRow([thirdRow[0], badAgerFarmer, thirdRow[2]])
     agerFarmerWin()
+    setEnd(true)
   } else if (firstRow[2] === agerFarmer && secondRow[2] === agerFarmer && thirdRow[2] === agerFarmer) {
     setFirstRow([firstRow[0], firstRow[1], badAgerFarmer])
     setSecondRow([secondRow[0], secondRow[1], badAgerFarmer])
     setThirdRow([thirdRow[0], thirdRow[1], badAgerFarmer])
     agerFarmerWin()
+    setEnd(true)
   } else if (firstRow[0] === martinator && secondRow[0] === martinator && thirdRow[0] === martinator) {
     setFirstRow([badMartinator, firstRow[1], firstRow[2]])
     setSecondRow([badMartinator, secondRow[1], secondRow[2]])
     setThirdRow([badMartinator, thirdRow[1], thirdRow[2]])
     martinWin()
+    setEnd(true)
   } else if (firstRow[1] === martinator && secondRow[1] === martinator && thirdRow[1] === martinator) {
     setFirstRow([firstRow[0], badMartinator, firstRow[2]])
     setSecondRow([secondRow[0], badMartinator, secondRow[2]])
     setThirdRow([thirdRow[0], badMartinator, thirdRow[2]])
     agerFarmerWin()
+    setEnd(true)
     martinWin()
+    setEnd(true)
   } else if (firstRow[2] === martinator && secondRow[2] === martinator && thirdRow[2] === martinator) {
     setFirstRow([firstRow[0], firstRow[1], badMartinator])
     setSecondRow([secondRow[0], secondRow[1], badMartinator])
     setThirdRow([thirdRow[0], thirdRow[1], badMartinator])
     martinWin()
+    setEnd(true)
   } else if (firstRow[0] === agerFarmer && secondRow[1] === agerFarmer && thirdRow[2] === agerFarmer) {
     setFirstRow([badAgerFarmer, firstRow[1], firstRow[2]])
     setSecondRow([firstRow[0], badAgerFarmer, secondRow[2]])
     setThirdRow([firstRow[0], firstRow[1], badAgerFarmer])
     agerFarmerWin()
+    setEnd(true)
   } else if (firstRow[2] === agerFarmer && secondRow[1] === agerFarmer && thirdRow[0] === agerFarmer) {
     setFirstRow([firstRow[0], firstRow[1], badAgerFarmer])
     setSecondRow([firstRow[0], badAgerFarmer, secondRow[2]])
     setThirdRow([badAgerFarmer, firstRow[1], thirdRow[2]])
     agerFarmerWin()
+    setEnd(true)
   } else if (firstRow[0] === martinator && secondRow[1] === martinator && thirdRow[2] === martinator) {
     setFirstRow([badMartinator, firstRow[1], firstRow[2]])
     setSecondRow([firstRow[0], badMartinator, secondRow[2]])
     setThirdRow([firstRow[0], firstRow[1], badMartinator])
     martinWin()
+    setEnd(true)
   } else if (firstRow[2] === martinator && secondRow[1] === martinator && thirdRow[0] === martinator) {
     setFirstRow([firstRow[0], firstRow[1], badMartinator])
     setSecondRow([firstRow[0], badMartinator, secondRow[2]])
     setThirdRow([badMartinator, firstRow[1], thirdRow[2]])
     martinWin()
+    setEnd(true)
   } else if (end) {
     tieTie()
   }
