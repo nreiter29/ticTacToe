@@ -1,3 +1,4 @@
+// imports
 import { Box, Button, Container, Heading, Img, Link, Text } from '@chakra-ui/react'
 import React, { Fragment, useMemo, useState } from 'react'
 import agerFarmer from './agerfarmer.png'
@@ -8,8 +9,12 @@ import { render } from 'react-dom'
 import badAgerFarmer from './agerfarmer-mlg.png'
 import badMartinator from './martinator-mlg.png'
 
+// App component
 const App = () => {
+  // added a sound effect
   const sound = useMemo(() => new Audio(quack), [])
+
+  // adding useStates
   const [start, setStart] = useState(true)
   const [count, setCount] = useState(0)
   const [reset, setReset] = useState(false)
@@ -26,6 +31,7 @@ const App = () => {
 
   const [image, setImage] = useState(agerFarmer)
 
+  // added reset option
   if (reset) {
     setStart(true)
     setCount(0)
@@ -41,11 +47,13 @@ const App = () => {
     setFinalEnd(false)
   }
 
+  // adding vars
   const [round, setRound] = useState(0)
   const [agerWinCount, setAgerWinCount] = useState(0)
   const [martinatorWinCount, setMartinatorWinCount] = useState(0)
   const [tieCount, setTieCount] = useState(0)
 
+  // function for setting pics
   function updateIndex (index: number, row: number) {
     if (count % 2 === 0) {
       if (martinatorCount !== 4) {
@@ -83,6 +91,7 @@ const App = () => {
     setTieCount(tieCount + 1)
   }
 
+  // if statement for ending game
   if (firstRow[0] === agerFarmer && firstRow[1] === agerFarmer && firstRow[2] === agerFarmer) {
     setEnd(true)
     agerFarmerWin()
@@ -173,6 +182,7 @@ const App = () => {
     tieTie()
   }
 
+  // end of game
   if (end) {
     setRound(round + 1)
     setTurn('')
@@ -180,6 +190,7 @@ const App = () => {
     setEnd(false)
   }
 
+  // show agerFarmer
   function showAgerFarmer () {
     if (turn === 'martinator') return
     if (turn === '') {
@@ -194,6 +205,7 @@ const App = () => {
     }
   }
 
+  // show martinator
   function showMartinator () {
     if (turn === 'agerFarmer') return
     if (turn === '') {
