@@ -23,12 +23,15 @@ const App = () => {
   const [turn, setTurn] = useState('')
   const [end, setEnd] = useState(false)
 
+  // added rows
   const [firstRow, setFirstRow] = useState(['o', 'o', 'o'])
   const [secondRow, setSecondRow] = useState(['o', 'o', 'o'])
   const [thirdRow, setThirdRow] = useState(['o', 'o', 'o'])
 
+  // added finalend
   const [finalEnd, setFinalEnd] = useState(false)
 
+  // set image useState
   const [image, setImage] = useState(agerFarmer)
 
   // added reset option
@@ -79,14 +82,17 @@ const App = () => {
     }
   }
 
+  // martinator win function
   function martinWin () {
     setMartinatorWinCount(martinatorWinCount + 1)
   }
 
+  // ager farmer win function
   function agerFarmerWin () {
     setAgerWinCount(agerWinCount + 1)
   }
 
+  // tie function
   function tieTie () {
     setTieCount(tieCount + 1)
   }
