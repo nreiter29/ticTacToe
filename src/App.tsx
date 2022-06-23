@@ -220,6 +220,7 @@ const App = () => {
     }
   }
 
+  // return
   return (
     <Container w="100vw" h="100vh" maxW="100vw" bgColor="#1A2A33" display="flex" flexDirection="row" padding="0" justifyContent="space-between">
       <Box w="33vw" justifyContent="center" alignItems="center" display="flex" gap="30px" flexDir="column">
@@ -311,4 +312,5 @@ const App = () => {
   )
 }
 
+// export default App
 export default App
