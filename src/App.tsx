@@ -279,7 +279,7 @@ const App = () => {
                         h={['80px', '130px', '190px', '204px']}
                         w={['200px', '200px', '240px', '263px']}
                         pt="1px"
-                      ><Img src={item} h={['60px', '90px', '130px', '200px']} w={['60px', '90px', '130px', '200px']} ml="60px" mt="30px"/>
+                      ><Img src={item} h={['60px', '90px', '130px', '150px']} w={['60px', '90px', '130px', '150px']} ml="60px" mt="30px"/>
                       </Box>
                       )
                     : !finalEnd ? <Box borderRight={['1px', '2px', '4px', '4px']} h={['80px', '130px', '190px', '204px']} w={['200px', '200px', '240px', '263px']} borderBottom={index === 2 ? '' : ['1px', '2px', '4px', '4px']} p="25px 80px 25px 80px" onClick={() => { setCount(count + 1); updateIndex(index, 1); setStart(false); sound.play() }} fontSize="10px"><Text color="#1A2A33" fontSize="10px">{item}</Text></Box> : <Box borderRight={['1px', '2px', '4px', '4px']} h={['80px', '130px', '190px', '204px']} w={['200px', '200px', '240px', '263px']} borderBottom={index === 2 ? '' : ['1px', '2px', '4px', '4px']} p="25px 80px 25px 80px" fontSize="10px"><Text color="#1A2A33">{item}</Text></Box>}
@@ -298,7 +298,7 @@ const App = () => {
                         h={['80px', '130px', '190px', '204px']}
                         w={['200px', '200px', '240px', '263px']}
                         pt="1px"
-                      ><Img src={item} h={['60px', '90px', '130px', '200px']} w={['60px', '90px', '130px', '200px']} ml="60px" mt="30px"/>
+                      ><Img src={item} h={['60px', '90px', '130px', '150px']} w={['60px', '90px', '130px', '150px']} ml="60px" mt="30px"/>
                       </Box>
                       )
                     : !finalEnd ? <Box borderBottom={index === 2 ? '' : ['1px', '2px', '4px', '4px']} h={['80px', '130px', '190px', '204px']} w={['200px', '200px', '240px', '263px']} p="25px 80px 25px 80px" onClick={() => { setCount(count + 1); updateIndex(index, 2); setStart(false); sound.play() }}><Text color="#1A2A33" fontSize="10px">{item}</Text></Box> : <Box borderBottom={index === 2 ? '' : ['1px', '2px', '4px', '4px']} h={['80px', '130px', '190px', '204px']} w={['200px', '200px', '240px', '263px']} p="25px 80px 25px 80px" fontSize="10px"><Text color="#1A2A33">{item}</Text></Box>}
