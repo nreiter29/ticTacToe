@@ -237,6 +237,7 @@ const App = () => {
     }
   }
 
+  // shows who is next
   function itsYourTurn () {
     if (turn === 'agerFarmer') {
       return (
