@@ -201,7 +201,11 @@ const App = () => {
 
   // show agerFarmer
   function showAgerFarmer () {
-    if (turn === 'martinator') return
+    if (turn === 'martinator') {
+      return (
+        <Img src={agerFarmer} alt="Ager Farmer" w="220px" h="220px" filter="grayscale(100%)"/>
+      )
+    }
     if (turn === '') {
       return (
         <Img src={agerFarmer} alt="Ager Farmer" w="220px" h="220px"/>
@@ -216,7 +220,11 @@ const App = () => {
 
   // show martinator
   function showMartinator () {
-    if (turn === 'agerFarmer') return
+    if (turn === 'agerFarmer') {
+      return (
+        <Img src={martinator} alt="Ager Farmer" w="180px" h="220px" filter="grayscale(100%)"/>
+      )
+    }
     if (turn === '') {
       return (
         <Img src={martinator} alt="Martinator" w="180px" h="220px"/>
@@ -224,7 +232,7 @@ const App = () => {
     }
     if (turn === 'martinator') {
       return (
-        <Img src={martinator} alt="Martinator" w="220px" h="220px"/>
+        <Img src={martinator} alt="Martinator" w="180px" h="220px"/>
       )
     }
   }
