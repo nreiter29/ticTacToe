@@ -1,5 +1,5 @@
 // imports
-import { Box, Button, Container, Heading, Hide, Img, Link, Text } from '@chakra-ui/react'
+import { Box, Button, Container, Heading, Hide, Img, Link, Select, Text } from '@chakra-ui/react'
 import React, { useMemo, useState } from 'react'
 import agerFarmer from './agerfarmer.png'
 import martinator from './martinator.png'
@@ -7,6 +7,14 @@ import tie from './tie.png'
 import quack from './Quack.mp3'
 import badAgerFarmer from './agerfarmer-mlg.png'
 import badMartinator from './martinator-mlg.png'
+import alex from './alexDerPunk.png'
+import badAlex from './alexDerGayePunk.png'
+import max from './maxDerGroße.png'
+import maxTheQueen from './maxDieGroßeQueen.png'
+import david from './davidDerWildeHengst.png'
+import davidTheStalker from './daviDerBadHengst.png'
+import { useForm } from 'react-hook-form'
+import { getValueTransition } from 'framer-motion/types/animation/utils/transitions'
 
 // App component
 const App = () => {
@@ -256,12 +264,21 @@ const App = () => {
     }
   }
 
+  const [whosNext, setWhosNext] = useState('agerFarmer')
+
   // return
   return (
     <Container w="100vw" h="100vh" maxW="100vw" bgColor="#1A2A33" display="flex" flexDirection="row" padding="0" justifyContent="space-between">
       <Hide below="xl">
-        <Box w="33vw" justifyContent="center" alignItems="center" display="flex" gap="30px" flexDir="column">
-          <Text color="#31C3BD" fontSize="80px">{agerWinCount}</Text>
+        <Box w="33vw" justifyContent="center" alignItems="center" display="flex" flexDir="column">
+          <Select placeholder="Choose your Player" color="#1A2A33" w="300px" textAlign="center" bgColor="#B9CFF0">
+            <option value="agerFarmer">The Farmer</option>
+            <option value="martinator">The Stoner</option>
+            <option value="max">The Queen</option>
+            <option value="alex">The Gay Punk</option>
+            <option value="david">The Stalker</option>
+          </Select>
+          <Text color="#31C3BD" fontSize="80px" mb="30px">{agerWinCount}</Text>
           {showAgerFarmer()}
         </Box>
       </Hide>
@@ -346,8 +363,15 @@ const App = () => {
         </Hide>
       </Box>
       <Hide below="xl">
-        <Box w="33vw" justifyContent="center" alignItems="center" display="flex" gap="30px" flexDir="column">
-          <Text color="#31C3BD" fontSize="80px">{martinatorWinCount}</Text>
+        <Box w="33vw" justifyContent="center" alignItems="center" display="flex" flexDir="column">
+          <Select placeholder="Choose your Player" color="#1A2A33" w="300px" textAlign="center" bgColor="#B9CFF0">
+            <option value="agerFarmer">The Farmer</option>
+            <option value="martinator">The Stoner</option>
+            <option value="max">The Queen</option>
+            <option value="alex">The Gay Punk</option>
+            <option value="david">The Stalker</option>
+          </Select>
+          <Text color="#31C3BD" fontSize="80px" mb="30px">{martinatorWinCount}</Text>
           {showMartinator()}
         </Box>
         <Img src="https://deepsource.io/gh/nreiter29/ticTacToe.svg/?label=active+issues&show_trend=true&token=9XtQOWOsWsEbL-yPWEf70JPy)%5D(https://deepsource.io/gh/nreiter29/ticTacToe/?ref=repository-badge" w="400px" position="absolute" left="full" right="25px" top="full" bottom="25px"/>
@@ -358,3 +382,6 @@ const App = () => {
 
 // export default App
 export default App
+function handleSubmit (onSubmit: (data: any) => void): React.FormEventHandler<HTMLFormElement> | undefined {
+  throw new Error('Function not implemented.')
+}

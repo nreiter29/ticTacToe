@@ -15,7 +15,8 @@
     "framer-motion": "^6.3.11",
     "module-name": "^0.0.1-security",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "react-hook-form": "^7.33.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",

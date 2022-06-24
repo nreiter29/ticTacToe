@@ -11,6 +11,17 @@
 <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <select id="choice">
+        <option>––––</option>
+        <option value="Haferflocken">Haferflocken</option>
+        <option value="Müsli">Müsli</option>
+        …
+     </select>
+    <script>
+        document.querySelector("#choice").onchange = function() {
+            console.log(document.querySelector("#choice").value)
+        }
+    </script>
 </body>
 
 </html>
