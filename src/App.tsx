@@ -237,6 +237,24 @@ const App = () => {
     }
   }
 
+  function itsYourTurn () {
+    if (turn === 'agerFarmer') {
+      return (
+        <Text color="white" fontSize={['18px', '25px', '35px', '50px']} mb="50px">AgerFarmer it's your turn!</Text>
+      )
+    }
+    if (turn === 'martinator') {
+      return (
+        <Text color="white" fontSize={['18px', '25px', '35px', '50px']} mb="50px">Martinator it's your turn!</Text>
+      )
+    }
+    if (turn === '') {
+      return (
+        <Text color="white" fontSize={['18px', '25px', '35px', '50px']} mb="50px">Click to start the game!</Text>
+      )
+    }
+  }
+
   // return
   return (
     <Container w="100vw" h="100vh" maxW="100vw" bgColor="#1A2A33" display="flex" flexDirection="row" padding="0" justifyContent="space-between">
@@ -248,12 +266,13 @@ const App = () => {
       </Hide>
       <Box textAlign="center" ml="auto" mr="auto" mt="auto" mb="auto">
         <Box>
-          <Heading color="#B9CFF0" fontSize={['50px', '70px', '90px', '150px']} fontFamily="sans-serif" fontWeight={500} mt="75px">TicTacToe</Heading>
+          <Heading color="#B9CFF0" fontSize={['50px', '70px', '90px', '150px']} fontFamily="sans-serif" fontWeight={500} mt="20px">TicTacToe</Heading>
         </Box>
-        <Box display="flex" justifyContent="space-evenly" fontSize={['30px', '40px', '60px', '80px']} w="340px" ml="auto" mr="auto" mb="50px">
+        <Box display="flex" justifyContent="space-evenly" fontSize={['30px', '40px', '60px', '80px']} w="340px" ml="auto" mr="auto" mb="0px">
           <Text color="white">Round</Text>
           <Text color="#31C3BD">{round}</Text>
         </Box>
+        {itsYourTurn()}
         <Box w="600px" color="grey" display="flex" fontSize="80px" justifyContent="space-evenly" ml="auto" mr="auto" >
           <Box>
             {firstRow.map((item, index) => {
