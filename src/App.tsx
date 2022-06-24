@@ -240,13 +240,13 @@ const App = () => {
       </Hide>
       <Box textAlign="center" ml="auto" mr="auto" mt="auto" mb="auto">
         <Box>
-          <Heading color="#B9CFF0" fontSize="150px" fontFamily="sans-serif" fontWeight={500} mt="75px">TicTacToe</Heading>
+          <Heading color="#B9CFF0" fontSize={['50px', '70px', '90px', '150px']} fontFamily="sans-serif" fontWeight={500} mt="75px">TicTacToe</Heading>
         </Box>
-        <Box display="flex" justifyContent="space-evenly" fontSize="80px" w="340px" ml="auto" mr="auto" mb="50px">
+        <Box display="flex" justifyContent="space-evenly" fontSize={['30px', '40px', '60px', '80px']} w="340px" ml="auto" mr="auto" mb="50px">
           <Text color="white">Round</Text>
           <Text color="#31C3BD">{round}</Text>
         </Box>
-        <Box w="600px" color="grey" display="flex" fontSize="100px" justifyContent="space-evenly" ml="auto" mr="auto" >
+        <Box w="600px" color="grey" display="flex" fontSize="80px" justifyContent="space-evenly" ml="auto" mr="auto" >
           <Box>
             {firstRow.map((item, index) => {
               return (
@@ -254,15 +254,15 @@ const App = () => {
                   {(item !== 'o')
                     ? (
                       <Box
-                        borderRight="4px"
-                        borderBottom={index === 2 ? '' : '4px'}
-                        h="204px"
-                        w="263px"
+                        borderRight={['1px', '2px', '4px', '4px']}
+                        borderBottom={index === 2 ? '' : ['1px', '2px', '4px', '4px']}
+                        h={['80px', '130px', '190px', '204px']}
+                        w={['200px', '200px', '240px', '263px']}
                         pt="1px"
-                      ><Img src={item} h="150px" w="150px" ml="60px" mt="30px"/>
+                      ><Img src={item} h={['60px', '90px', '130px', '150px']} w={['60px', '90px', '130px', '150px']} ml="60px" mt="30px"/>
                       </Box>
                       )
-                    : !finalEnd ? <Box borderRight="4px" h="204px" w="263px" borderBottom={index === 2 ? '' : '4px'} p="25px 100px 25px 100px" onClick={() => { setCount(count + 1); updateIndex(index, 0); setStart(false); sound.play() }}><Text color="#1A2A33">{item}</Text></Box> : <Box borderRight="4px" h="204px" w="263px" borderBottom={index === 2 ? '' : '4px'} p="25px 100px 25px 100px"><Text color="#1A2A33">{item}</Text></Box>}
+                    : !finalEnd ? <Box borderRight={['1px', '2px', '4px', '4px']} h={['80px', '130px', '190px', '204px']} w={['200px', '200px', '240px', '263px']} borderBottom={index === 2 ? '' : ['1px', '2px', '4px', '4px']} p="25px 80px 25px 80px" onClick={() => { setCount(count + 1); updateIndex(index, 0); setStart(false); sound.play() }} fontSize="10px"><Text color="#1A2A33" fontSize="10px">{item}</Text></Box> : <Box borderRight={['1px', '2px', '4px', '4px']} h={['80px', '130px', '190px', '204px']} w={['200px', '200px', '240px', '263px']} borderBottom={index === 2 ? '' : ['1px', '2px', '4px', '4px']} p="25px 80px 25px 80px" fontSize="10px"><Text color="#1A2A33">{item}</Text></Box>}
                 </Link>
               )
             })}
@@ -274,15 +274,15 @@ const App = () => {
                   {(item !== 'o')
                     ? (
                       <Box
-                        borderRight="4px"
-                        borderBottom={index === 2 ? '' : '4px'}
-                        h="204px"
-                        w="263px"
+                        borderRight={['1px', '2px', '4px', '4px']}
+                        borderBottom={index === 2 ? '' : ['1px', '2px', '4px', '4px']}
+                        h={['80px', '130px', '190px', '204px']}
+                        w={['200px', '200px', '240px', '263px']}
                         pt="1px"
-                      ><Img src={item} h="150px" w="150px" ml="60px" mt="30px"/>
+                      ><Img src={item} h={['60px', '90px', '130px', '200px']} w={['60px', '90px', '130px', '200px']} ml="60px" mt="30px"/>
                       </Box>
                       )
-                    : !finalEnd ? <Box borderRight="4px" h="204px" w="263px" borderBottom={index === 2 ? '' : '4px'} p="25px 100px 25px 100px" onClick={() => { setCount(count + 1); updateIndex(index, 1); setStart(false); sound.play() }}><Text color="#1A2A33">{item}</Text></Box> : <Box borderRight="4px" h="204px" w="263px" borderBottom={index === 2 ? '' : '4px'} p="25px 100px 25px 100px" ><Text color="#1A2A33">{item}</Text></Box>}
+                    : !finalEnd ? <Box borderRight={['1px', '2px', '4px', '4px']} h={['80px', '130px', '190px', '204px']} w={['200px', '200px', '240px', '263px']} borderBottom={index === 2 ? '' : ['1px', '2px', '4px', '4px']} p="25px 80px 25px 80px" onClick={() => { setCount(count + 1); updateIndex(index, 1); setStart(false); sound.play() }} fontSize="10px"><Text color="#1A2A33" fontSize="10px">{item}</Text></Box> : <Box borderRight={['1px', '2px', '4px', '4px']} h={['80px', '130px', '190px', '204px']} w={['200px', '200px', '240px', '263px']} borderBottom={index === 2 ? '' : ['1px', '2px', '4px', '4px']} p="25px 80px 25px 80px" fontSize="10px"><Text color="#1A2A33">{item}</Text></Box>}
                 </Link>
               )
             })}
@@ -294,14 +294,14 @@ const App = () => {
                   {(item !== 'o')
                     ? (
                       <Box
-                        borderBottom={index === 2 ? '' : '4px'}
-                        h="204px"
-                        w="263px"
+                        borderBottom={index === 2 ? '' : ['1px', '2px', '4px', '4px']}
+                        h={['80px', '130px', '190px', '204px']}
+                        w={['200px', '200px', '240px', '263px']}
                         pt="1px"
-                      ><Img src={item} h="150px" w="150px" ml="60px" mt="30px"/>
+                      ><Img src={item} h={['60px', '90px', '130px', '200px']} w={['60px', '90px', '130px', '200px']} ml="60px" mt="30px"/>
                       </Box>
                       )
-                    : !finalEnd ? <Box borderBottom={index === 2 ? '' : '4px'} h="204px" w="263px" p="25px 100px 25px 100px" onClick={() => { setCount(count + 1); updateIndex(index, 2); setStart(false); sound.play() }}><Text color="#1A2A33">{item}</Text></Box> : <Box borderBottom={index === 2 ? '' : '4px'} h="204px" w="263px" p="25px 100px 25px 100px" ><Text color="#1A2A33">{item}</Text></Box>}
+                    : !finalEnd ? <Box borderBottom={index === 2 ? '' : ['1px', '2px', '4px', '4px']} h={['80px', '130px', '190px', '204px']} w={['200px', '200px', '240px', '263px']} p="25px 80px 25px 80px" onClick={() => { setCount(count + 1); updateIndex(index, 2); setStart(false); sound.play() }}><Text color="#1A2A33" fontSize="10px">{item}</Text></Box> : <Box borderBottom={index === 2 ? '' : ['1px', '2px', '4px', '4px']} h={['80px', '130px', '190px', '204px']} w={['200px', '200px', '240px', '263px']} p="25px 80px 25px 80px" fontSize="10px"><Text color="#1A2A33">{item}</Text></Box>}
                 </Link>
               )
             })}
