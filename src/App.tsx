@@ -28,10 +28,10 @@ const App = () => {
   const [turn, setTurn] = useState('')
   const [end, setEnd] = useState(false)
   const [valueLeftSide, setValue] = useState<string>('')
-  let characterLeftSide: unknown
-  let badLeftSide: unknown
-  let characterRightSide: unknown
-  let badRightSide: unknown
+  let characterLeftSide = ''
+  let badLeftSide = ''
+  let characterRightSide = ''
+  let badRightSide = ''
   const [valueRightSide, setValueRightSide] = useState<string>('')
 
   // handle the value of the select for the left side
@@ -285,7 +285,7 @@ const App = () => {
     if (valueRightSide !== '') {
       if (turn === 'agerFarmer') {
         return (
-          <Img src={characterRightSide} alt="Ager Farmer" w="180px" h="220px" filter="grayscale(100%)"/>
+          <Img src={characterRightSide} alt="Martinator" w="180px" h="220px" filter="grayscale(100%)"/>
         )
       }
       if (turn === '') {
@@ -332,122 +332,38 @@ const App = () => {
 
   // options for the Left Side
   const OptionsLeftSide = () => {
-    if (valueRightSide === 'Martinator') {
-      return (
-        <>
-          <option value="AgerFarmer">The Farmer</option>
-          <option value="Max">The Queen</option>
-          <option value="Alex">The Gay Punk</option>
-          <option value="David">The Stalker</option>
-        </>
-      )
-    } else if (valueRightSide === 'AgerFarmer') {
-      return (
-        <>
-          <option value="Martinator">The Stoner</option>
-          <option value="Max">The Queen</option>
-          <option value="Alex">The Gay Punk</option>
-          <option value="David">The Stalker</option>
-        </>
-      )
-    } else if (valueRightSide === 'Max') {
-      return (
-        <>
-          <option value="AgerFarmer">The Farmer</option>
-          <option value="Max">The Queen</option>
-          <option value="Alex">The Gay Punk</option>
-          <option value="David">The Stalker</option>
-        </>
-      )
-    } else if (valueRightSide === 'Alex') {
-      return (
-        <>
-          <option value="Martinator">The Stoner</option>
-          <option value="Max">The Queen</option>
-          <option value="AgerFarmer">The Farmer</option>
-          <option value="David">The Stalker</option>
-        </>
-      )
-    } else if (valueRightSide === 'David') {
-      return (
-        <>
-          <option value="Martinator">The Stoner</option>
-          <option value="Max">The Queen</option>
-          <option value="AgerFarmer">The Farmer</option>
-          <option value="Alex">The Gay Punk</option>
-        </>
-      )
-    } else {
-      return (
-        <>
-          <option value="AgerFarmer">The Farmer</option>
-          <option value="Martinator">The Stoner</option>
-          <option value="Max">The Queen</option>
-          <option value="Alex">The Gay Punk</option>
-          <option value="David">The Stalker</option>
-        </>
-      )
-    }
+    return (
+      <>
+        {valueRightSide !== 'AgerFarmer' &&
+          <option value="AgerFarmer">The Farmer</option>}
+        {valueRightSide !== 'Martinator' &&
+          <option value="Martinator">The Stoner</option>}
+        {valueRightSide !== 'Max' &&
+          <option value="Max">The Queen</option>}
+        {valueRightSide !== 'Alex' &&
+          <option value="Alex">The Gay Punk</option>}
+        {valueRightSide !== 'David' &&
+          <option value="David">The Stalker</option>}
+      </>
+    )
   }
 
   // options for the Right Side
   const OptionsRightSide = () => {
-    if (valueLeftSide === 'Martinator') {
-      return (
-        <>
-          <option value="AgerFarmer">The Farmer</option>
-          <option value="Max">The Queen</option>
-          <option value="Alex">The Gay Punk</option>
-          <option value="David">The Stalker</option>
-        </>
-      )
-    } else if (valueLeftSide === 'AgerFarmer') {
-      return (
-        <>
-          <option value="Martinator">The Stoner</option>
-          <option value="Max">The Queen</option>
-          <option value="Alex">The Gay Punk</option>
-          <option value="David">The Stalker</option>
-        </>
-      )
-    } else if (valueLeftSide === 'Max') {
-      return (
-        <>
-          <option value="AgerFarmer">The Farmer</option>
-          <option value="Max">The Queen</option>
-          <option value="Alex">The Gay Punk</option>
-          <option value="David">The Stalker</option>
-        </>
-      )
-    } else if (valueLeftSide === 'Alex') {
-      return (
-        <>
-          <option value="Martinator">The Stoner</option>
-          <option value="Max">The Queen</option>
-          <option value="AgerFarmer">The Farmer</option>
-          <option value="David">The Stalker</option>
-        </>
-      )
-    } else if (valueLeftSide === 'David') {
-      return (
-        <>
-          <option value="Martinator">The Stoner</option>
-          <option value="Max">The Queen</option>
-          <option value="AgerFarmer">The Farmer</option>
-          <option value="Alex">The Gay Punk</option>
-        </>
-      )
-    } else {
-      return (
-        <>
-          <option value="AgerFarmer">The Farmer</option>
-          <option value="Martinator">The Stoner</option>
-          <option value="Max">The Queen</option>
-          <option value="Alex">The Gay Punk</option>
-          <option value="David">The Stalker</option>
-        </>
-      )
-    }
+    return (
+      <>
+        {valueLeftSide !== 'AgerFarmer' &&
+          <option value="AgerFarmer">The Farmer</option>}
+        {valueLeftSide !== 'Martinator' &&
+          <option value="Martinator">The Stoner</option>}
+        {valueLeftSide !== 'Max' &&
+          <option value="Max">The Queen</option>}
+        {valueLeftSide !== 'Alex' &&
+          <option value="Alex">The Gay Punk</option>}
+        {valueLeftSide !== 'David' &&
+          <option value="David">The Stalker</option>}
+      </>
+    )
   }
   if (valueLeftSide === '' || valueRightSide === '') {
     finalEnd = true
