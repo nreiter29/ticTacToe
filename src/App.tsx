@@ -28,10 +28,10 @@ const App = () => {
   const [turn, setTurn] = useState('')
   const [end, setEnd] = useState(false)
   const [valueLeftSide, setValue] = useState<string>('')
-  let characterLeftSide: any
-  let badLeftSide: any
-  let characterRightSide: any
-  let badRightSide: any
+  let characterLeftSide: unknown
+  let badLeftSide: unknown
+  let characterRightSide: unknown
+  let badRightSide: unknown
   const [valueRightSide, setValueRightSide] = useState<string>('')
 
   // handle the value of the select for the left side
@@ -449,11 +449,12 @@ const App = () => {
       )
     }
   }
-
   if (valueLeftSide === '' || valueRightSide === '') {
     finalEnd = true
     start = true
   }
+
+  console.log(badRightSide)
 
   // return
   return (
