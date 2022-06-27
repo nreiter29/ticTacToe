@@ -330,7 +330,7 @@ const App = () => {
     start = true
   }
 
-  // return
+  // return the component
   return (
     <Container w="100vw" h="100vh" maxW="100vw" bgColor="#1A2A33" display="flex" flexDirection="row" padding="0" justifyContent="space-between">
       <Hide below="xl">
