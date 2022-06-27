@@ -471,7 +471,7 @@ const App = () => {
               {showAgerFarmer()}
             </Box>
           </Show>
-          <Show after="xl">
+          <Show above="xl">
             <Box w="80px" justifyContent="center" alignItems="center" display="flex" flexDir="column">
               <Select placeholder="Choose your Player" color="#1A2A33" w={['200px', '200px', '200px', '250px']} textAlign="center" bgColor="#B9CFF0" value={valueRightSide} onChange={e => setValueRightSide(e.target.value)}>
                 <OptionsRightSide/>
@@ -484,7 +484,7 @@ const App = () => {
           </Show>
         </Box>
       </Box>
-      <Hide below="xl">
+      <Hide above="xl">
         <Box w="33vw" justifyContent="center" alignItems="center" display="flex" flexDir="column">
           <Select placeholder="Choose your Player" color="#1A2A33" w="300px" textAlign="center" bgColor="#B9CFF0" value={valueRightSide} onChange={e => setValueRightSide(e.target.value)}>
             <OptionsRightSide/>
