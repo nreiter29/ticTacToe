@@ -381,6 +381,3 @@ const App = () => {
 
 // export default App
 export default App
-function handleSubmit (onSubmit: (data: any) => void): React.FormEventHandler<HTMLFormElement> | undefined {
-  throw new Error('Function not implemented.')
-}
