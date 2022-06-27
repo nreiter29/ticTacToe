@@ -27,12 +27,12 @@ const App = () => {
   const [agerFarmerCount, setAgerFarmerCount] = useState(0)
   const [turn, setTurn] = useState('')
   const [end, setEnd] = useState(false)
-  const [valueLeftSide, setValue] = useState<string>()
+  const [valueLeftSide, setValue] = useState<string>('')
   let characterLeftSide = agerFarmer
   let badLeftSide = badAgerFarmer
   let characterRightSide = martinator
   let badRightSide = badMartinator
-  const [valueRightSide, setValueRightSide] = useState<string>()
+  const [valueRightSide, setValueRightSide] = useState<string>('')
 
   // handle the value of the select for the left side
   if (valueLeftSide === 'Martinator') {
@@ -261,39 +261,43 @@ const App = () => {
 
   // show agerFarmer
   function showAgerFarmer () {
-    if (turn === 'martinator') {
-      return (
-        <Img src={characterLeftSide} alt="Ager Farmer" w="220px" h="220px" filter="grayscale(100%)"/>
-      )
-    }
-    if (turn === '') {
-      return (
-        <Img src={characterLeftSide} alt="Ager Farmer" w="220px" h="220px"/>
-      )
-    }
-    if (turn === 'agerFarmer') {
-      return (
-        <Img src={characterLeftSide} alt="Ager Farmer" w="220px" h="220px"/>
-      )
+    if (valueLeftSide !== '') {
+      if (turn === 'martinator') {
+        return (
+          <Img src={characterLeftSide} alt="Ager Farmer" w="220px" h="220px" filter="grayscale(100%)"/>
+        )
+      }
+      if (turn === '') {
+        return (
+          <Img src={characterLeftSide} alt="Ager Farmer" w="220px" h="220px"/>
+        )
+      }
+      if (turn === 'agerFarmer') {
+        return (
+          <Img src={characterLeftSide} alt="Ager Farmer" w="220px" h="220px"/>
+        )
+      }
     }
   }
 
   // show martinator
   function showMartinator () {
-    if (turn === 'agerFarmer') {
-      return (
-        <Img src={characterRightSide} alt="Ager Farmer" w="180px" h="220px" filter="grayscale(100%)"/>
-      )
-    }
-    if (turn === '') {
-      return (
-        <Img src={characterRightSide} alt="Martinator" w="180px" h="220px"/>
-      )
-    }
-    if (turn === 'martinator') {
-      return (
-        <Img src={characterRightSide} alt="Martinator" w="180px" h="220px"/>
-      )
+    if (valueRightSide !== '') {
+      if (turn === 'agerFarmer') {
+        return (
+          <Img src={characterRightSide} alt="Ager Farmer" w="180px" h="220px" filter="grayscale(100%)"/>
+        )
+      }
+      if (turn === '') {
+        return (
+          <Img src={characterRightSide} alt="Martinator" w="180px" h="220px"/>
+        )
+      }
+      if (turn === 'martinator') {
+        return (
+          <Img src={characterRightSide} alt="Martinator" w="180px" h="220px"/>
+        )
+      }
     }
   }
 
