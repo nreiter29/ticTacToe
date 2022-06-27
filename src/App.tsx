@@ -28,10 +28,10 @@ const App = () => {
   const [turn, setTurn] = useState('')
   const [end, setEnd] = useState(false)
   const [valueLeftSide, setValue] = useState<string>('')
-  let characterLeftSide: string
-  let badLeftSide: string
-  let characterRightSide: string
-  let badRightSide: string
+  let characterLeftSide: any
+  let badLeftSide: any
+  let characterRightSide: any
+  let badRightSide: any
   const [valueRightSide, setValueRightSide] = useState<string>('')
 
   // handle the value of the select for the left side
@@ -303,21 +303,23 @@ const App = () => {
 
   // shows who is next
   function itsYourTurn () {
-    if (turn === 'agerFarmer') {
-      return (
-        <Text color="white" fontSize={['18px', '25px', '35px', '50px']} mb="50px">{valueLeftSide} it's your turn!</Text>
-      )
-    }
-    if (turn === 'martinator') {
-      return (
-        <Text color="white" fontSize={['18px', '25px', '35px', '50px']} mb="50px">{valueRightSide} it's your turn!</Text>
-      )
-    }
-    if (turn === '') {
-      return (
-        <Text color="white" fontSize={['18px', '25px', '35px', '50px']} mb="50px">Click to start the game!</Text>
-      )
-    }
+    if (valueLeftSide !== '' && valueRightSide !== '') {
+      if (turn === 'agerFarmer') {
+        return (
+          <Text color="white" fontSize={['18px', '25px', '35px', '50px']} mb="50px">{valueLeftSide} it's your turn!</Text>
+        )
+      }
+      if (turn === 'martinator') {
+        return (
+          <Text color="white" fontSize={['18px', '25px', '35px', '50px']} mb="50px">{valueRightSide} it's your turn!</Text>
+        )
+      }
+      if (turn === '') {
+        return (
+          <Text color="white" fontSize={['18px', '25px', '35px', '50px']} mb="50px">Click to start the game!</Text>
+        )
+      }
+    } return <Text color="white" fontSize={['18px', '25px', '35px', '50px']} mb="50px">First choose a Player!</Text>
   }
 
   // feature that you cant use the same character twice
