@@ -160,96 +160,58 @@ const App = () => {
     }
   }
 
-  // if statement for ending game
-  if (firstRow[0] === characterLeftSide && firstRow[1] === characterLeftSide && firstRow[2] === characterLeftSide) {
-    setEnd(true)
-    agerFarmerWin()
-    setFirstRow([badLeftSide, badLeftSide, badLeftSide])
-  } else if (secondRow[0] === characterLeftSide && secondRow[1] === characterLeftSide && secondRow[2] === characterLeftSide) {
-    setSecondRow([badLeftSide, badLeftSide, badLeftSide])
-    agerFarmerWin()
-    setEnd(true)
-  } else if (thirdRow[0] === characterLeftSide && thirdRow[1] === characterLeftSide && thirdRow[2] === characterLeftSide) {
-    setThirdRow([badLeftSide, badLeftSide, badLeftSide])
-    agerFarmerWin()
-    setEnd(true)
-  } else if (firstRow[0] === characterRightSide && firstRow[1] === characterRightSide && firstRow[2] === characterRightSide) {
-    setFirstRow([badRightSide, badRightSide, badRightSide])
-    martinWin()
-    setEnd(true)
-  } else if (secondRow[0] === characterRightSide && secondRow[1] === characterRightSide && secondRow[2] === characterRightSide) {
-    setSecondRow([badRightSide, badRightSide, badRightSide])
-    martinWin()
-    setEnd(true)
-  } else if (thirdRow[0] === characterRightSide && thirdRow[1] === characterRightSide && thirdRow[2] === characterRightSide) {
-    setThirdRow([badRightSide, badRightSide, badRightSide])
-    martinWin()
-    setEnd(true)
-  } else if (firstRow[0] === characterLeftSide && secondRow[0] === characterLeftSide && thirdRow[0] === characterLeftSide) {
-    setFirstRow([badLeftSide, firstRow[1], firstRow[2]])
-    setSecondRow([badLeftSide, secondRow[1], secondRow[2]])
-    setThirdRow([badLeftSide, thirdRow[1], thirdRow[2]])
-    agerFarmerWin()
-    setEnd(true)
-  } else if (firstRow[1] === characterLeftSide && secondRow[1] === characterLeftSide && thirdRow[1] === characterLeftSide) {
-    setFirstRow([firstRow[0], badLeftSide, firstRow[2]])
-    setSecondRow([secondRow[0], badLeftSide, secondRow[2]])
-    setThirdRow([thirdRow[0], badLeftSide, thirdRow[2]])
-    agerFarmerWin()
-    setEnd(true)
-  } else if (firstRow[2] === characterLeftSide && secondRow[2] === characterLeftSide && thirdRow[2] === characterLeftSide) {
-    setFirstRow([firstRow[0], firstRow[1], badLeftSide])
-    setSecondRow([secondRow[0], secondRow[1], badLeftSide])
-    setThirdRow([thirdRow[0], thirdRow[1], badLeftSide])
-    agerFarmerWin()
-    setEnd(true)
-  } else if (firstRow[0] === characterRightSide && secondRow[0] === characterRightSide && thirdRow[0] === characterRightSide) {
-    setFirstRow([badRightSide, firstRow[1], firstRow[2]])
-    setSecondRow([badRightSide, secondRow[1], secondRow[2]])
-    setThirdRow([badRightSide, thirdRow[1], thirdRow[2]])
-    martinWin()
-    setEnd(true)
-  } else if (firstRow[1] === characterRightSide && secondRow[1] === characterRightSide && thirdRow[1] === characterRightSide) {
-    setFirstRow([firstRow[0], badRightSide, firstRow[2]])
-    setSecondRow([secondRow[0], badRightSide, secondRow[2]])
-    setThirdRow([thirdRow[0], badRightSide, thirdRow[2]])
-    agerFarmerWin()
-    setEnd(true)
-    martinWin()
-    setEnd(true)
-  } else if (firstRow[2] === characterRightSide && secondRow[2] === characterRightSide && thirdRow[2] === characterRightSide) {
-    setFirstRow([firstRow[0], firstRow[1], badRightSide])
-    setSecondRow([secondRow[0], secondRow[1], badRightSide])
-    setThirdRow([thirdRow[0], thirdRow[1], badRightSide])
-    martinWin()
-    setEnd(true)
-  } else if (firstRow[0] === characterLeftSide && secondRow[1] === characterLeftSide && thirdRow[2] === characterLeftSide) {
-    setFirstRow([badLeftSide, firstRow[1], firstRow[2]])
-    setSecondRow([secondRow[0], badLeftSide, secondRow[2]])
-    setThirdRow([thirdRow[0], thirdRow[1], badLeftSide])
-    agerFarmerWin()
-    setEnd(true)
-  } else if (firstRow[2] === characterLeftSide && secondRow[1] === characterLeftSide && thirdRow[0] === characterLeftSide) {
-    setFirstRow([firstRow[0], firstRow[1], badLeftSide])
-    setSecondRow([secondRow[0], badLeftSide, secondRow[2]])
-    setThirdRow([badLeftSide, thirdRow[1], thirdRow[2]])
-    agerFarmerWin()
-    setEnd(true)
-  } else if (firstRow[0] === characterRightSide && secondRow[1] === characterRightSide && thirdRow[2] === characterRightSide) {
-    setFirstRow([badRightSide, firstRow[1], firstRow[2]])
-    setSecondRow([secondRow[0], badRightSide, secondRow[2]])
-    setThirdRow([thirdRow[0], thirdRow[1], badRightSide])
-    martinWin()
-    setEnd(true)
-  } else if (firstRow[2] === characterRightSide && secondRow[1] === characterRightSide && thirdRow[0] === characterRightSide) {
-    setFirstRow([firstRow[0], firstRow[1], badRightSide])
-    setSecondRow([secondRow[0], badRightSide, secondRow[2]])
-    setThirdRow([badRightSide, thirdRow[1], thirdRow[2]])
-    martinWin()
-    setEnd(true)
-  } else if (firstRow[0] !== 'x' && firstRow[1] !== 'x' && firstRow[2] !== 'x' && secondRow[0] !== 'x' && secondRow[1] !== 'x' && secondRow[2] !== 'x' && thirdRow[0] !== 'x' && thirdRow[1] !== 'x' && thirdRow[2] !== 'x' && end) {
-    tieTie()
+  // function for the end of the game
+  const codeShortner = (character: string, bad: string, whoWins: () => void) => {
+    if (firstRow[0] === character && firstRow[1] === character && firstRow[2] === character) {
+      setEnd(true)
+      whoWins()
+      setFirstRow([bad, bad, bad])
+    } else if (secondRow[0] === character && secondRow[1] === character && secondRow[2] === character) {
+      setSecondRow([bad, bad, bad])
+      whoWins()
+      setEnd(true)
+    } else if (thirdRow[0] === character && thirdRow[1] === character && thirdRow[2] === character) {
+      setThirdRow([bad, bad, bad])
+      whoWins()
+      setEnd(true)
+    } else if (firstRow[0] === character && secondRow[0] === character && thirdRow[0] === character) {
+      setFirstRow([bad, firstRow[1], firstRow[2]])
+      setSecondRow([bad, secondRow[1], secondRow[2]])
+      setThirdRow([bad, thirdRow[1], thirdRow[2]])
+      whoWins()
+      setEnd(true)
+    } else if (firstRow[1] === character && secondRow[1] === character && thirdRow[1] === character) {
+      setFirstRow([firstRow[0], bad, firstRow[2]])
+      setSecondRow([secondRow[0], bad, secondRow[2]])
+      setThirdRow([thirdRow[0], bad, thirdRow[2]])
+      whoWins()
+      setEnd(true)
+    } else if (firstRow[2] === character && secondRow[2] === character && thirdRow[2] === character) {
+      setFirstRow([firstRow[0], firstRow[1], bad])
+      setSecondRow([secondRow[0], secondRow[1], bad])
+      setThirdRow([thirdRow[0], thirdRow[1], bad])
+      whoWins()
+      setEnd(true)
+    } else if (firstRow[0] === character && secondRow[1] === character && thirdRow[2] === character) {
+      setFirstRow([bad, firstRow[1], firstRow[2]])
+      setSecondRow([secondRow[0], bad, secondRow[2]])
+      setThirdRow([thirdRow[0], thirdRow[1], bad])
+      whoWins()
+      setEnd(true)
+    } else if (firstRow[2] === character && secondRow[1] === character && thirdRow[0] === character) {
+      setFirstRow([firstRow[0], firstRow[1], bad])
+      setSecondRow([secondRow[0], bad, secondRow[2]])
+      setThirdRow([bad, thirdRow[1], thirdRow[2]])
+      whoWins()
+      setEnd(true)
+    } else if (firstRow[0] !== 'x' && firstRow[1] !== 'x' && firstRow[2] !== 'x' && secondRow[0] !== 'x' && secondRow[1] !== 'x' && secondRow[2] !== 'x' && thirdRow[0] !== 'x' && thirdRow[1] !== 'x' && thirdRow[2] !== 'x' && end) {
+      tieTie()
+    }
   }
+
+  // carry out the functions
+  codeShortner(characterLeftSide, badLeftSide, agerFarmerWin)
+  codeShortner(characterRightSide, badRightSide, martinWin)
 
   // end option
   if (end) {
