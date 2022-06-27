@@ -461,8 +461,8 @@ const App = () => {
             <Text color="#31C3BD" fontSize="80px">{tieCount}</Text>
           </Box>
         </Hide>
-        <Box display="flex" w="400px" alignContent="space-between" ml="auto" mr="auto" justifyContent="space-between" mt="25px">
-          <Show after="xl">
+        <Show below="xl">
+          <Box display="flex" w="400px" alignContent="space-between" ml="auto" mr="auto" justifyContent="space-between" mt="25px">
             <Box w="80px" justifyContent="center" alignItems="center" display="flex" flexDir="column">
               <Select placeholder="Choose your Player" color="#1A2A33" w={['200px', '200px', '200px', '250px']} textAlign="center" bgColor="#B9CFF0" value={valueLeftSide} onChange={e => setValue(e.target.value)}>
                 <OptionsLeftSide/>
@@ -470,8 +470,6 @@ const App = () => {
               <Text color="#31C3BD" fontSize="50px" mb="0px">{agerWinCount}</Text>
               {showAgerFarmer()}
             </Box>
-          </Show>
-          <Show above="xl">
             <Box w="80px" justifyContent="center" alignItems="center" display="flex" flexDir="column">
               <Select placeholder="Choose your Player" color="#1A2A33" w={['200px', '200px', '200px', '250px']} textAlign="center" bgColor="#B9CFF0" value={valueRightSide} onChange={e => setValueRightSide(e.target.value)}>
                 <OptionsRightSide/>
@@ -481,10 +479,10 @@ const App = () => {
                 {showMartinator()}
               </Box>
             </Box>
-          </Show>
-        </Box>
+          </Box>
+        </Show>
       </Box>
-      <Hide above="xl">
+      <Hide below="xl">
         <Box w="33vw" justifyContent="center" alignItems="center" display="flex" flexDir="column">
           <Select placeholder="Choose your Player" color="#1A2A33" w="300px" textAlign="center" bgColor="#B9CFF0" value={valueRightSide} onChange={e => setValueRightSide(e.target.value)}>
             <OptionsRightSide/>
