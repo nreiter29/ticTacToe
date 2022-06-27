@@ -285,17 +285,17 @@ const App = () => {
     if (valueRightSide !== '') {
       if (turn === 'agerFarmer') {
         return (
-          <Img src={characterRightSide} alt="Martinator" w="180px" h="220px" filter="grayscale(100%)"/>
+          <Img src={characterRightSide} alt="Martinator" w="220px" h="220px" filter="grayscale(100%)"/>
         )
       }
       if (turn === '') {
         return (
-          <Img src={characterRightSide} alt="Martinator" w="180px" h="220px"/>
+          <Img src={characterRightSide} alt="Martinator" w="220px" h="220px"/>
         )
       }
       if (turn === 'martinator') {
         return (
-          <Img src={characterRightSide} alt="Martinator" w="180px" h="220px"/>
+          <Img src={characterRightSide} alt="Martinator" w="220px" h="220px"/>
         )
       }
     }
