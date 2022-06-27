@@ -454,8 +454,6 @@ const App = () => {
     start = true
   }
 
-  console.log(badRightSide)
-
   // return
   return (
     <Container w="100vw" h="100vh" maxW="100vw" bgColor="#1A2A33" display="flex" flexDirection="row" padding="0" justifyContent="space-between">
