@@ -160,39 +160,36 @@ const App = () => {
     }
   }
 
+  const horizontalLineCheck = (rowNumber: number, character: string, badCharacter: string, whoWins: () => void) => {
+    if (firstRow[rowNumber] === character && secondRow[rowNumber] === character && thirdRow[rowNumber] === character) {
+      whoWins()
+      setEnd(true)
+      firstRow[rowNumber] = badCharacter
+      secondRow[rowNumber] = badCharacter
+      thirdRow[rowNumber] = badCharacter
+    }
+  }
+
+  const verticalLineCheck = (row: string[], character: string, badCharacter: string, whoWins: () => void) => {
+    if (row[0] === character && row[1] === character && row[2] === character) {
+      whoWins()
+      setEnd(true)
+      row[0] = badCharacter
+      row[1] = badCharacter
+      row[2] = badCharacter
+    }
+  }
+
   // function for the end of the game
   const codeShortner = (character: string, bad: string, whoWins: () => void) => {
-    if (firstRow[0] === character && firstRow[1] === character && firstRow[2] === character) {
-      setEnd(true)
-      whoWins()
-      setFirstRow([bad, bad, bad])
-    } else if (secondRow[0] === character && secondRow[1] === character && secondRow[2] === character) {
-      setSecondRow([bad, bad, bad])
-      whoWins()
-      setEnd(true)
-    } else if (thirdRow[0] === character && thirdRow[1] === character && thirdRow[2] === character) {
-      setThirdRow([bad, bad, bad])
-      whoWins()
-      setEnd(true)
-    } else if (firstRow[0] === character && secondRow[0] === character && thirdRow[0] === character) {
-      setFirstRow([bad, firstRow[1], firstRow[2]])
-      setSecondRow([bad, secondRow[1], secondRow[2]])
-      setThirdRow([bad, thirdRow[1], thirdRow[2]])
-      whoWins()
-      setEnd(true)
-    } else if (firstRow[1] === character && secondRow[1] === character && thirdRow[1] === character) {
-      setFirstRow([firstRow[0], bad, firstRow[2]])
-      setSecondRow([secondRow[0], bad, secondRow[2]])
-      setThirdRow([thirdRow[0], bad, thirdRow[2]])
-      whoWins()
-      setEnd(true)
-    } else if (firstRow[2] === character && secondRow[2] === character && thirdRow[2] === character) {
-      setFirstRow([firstRow[0], firstRow[1], bad])
-      setSecondRow([secondRow[0], secondRow[1], bad])
-      setThirdRow([thirdRow[0], thirdRow[1], bad])
-      whoWins()
-      setEnd(true)
-    } else if (firstRow[0] === character && secondRow[1] === character && thirdRow[2] === character) {
+    horizontalLineCheck(0, character, bad, whoWins)
+    horizontalLineCheck(1, character, bad, whoWins)
+    horizontalLineCheck(2, character, bad, whoWins)
+    verticalLineCheck(firstRow, character, bad, whoWins)
+    verticalLineCheck(secondRow, character, bad, whoWins)
+    verticalLineCheck(thirdRow, character, bad, whoWins)
+    // diagonal lines
+    if (firstRow[0] === character && secondRow[1] === character && thirdRow[2] === character) {
       setFirstRow([bad, firstRow[1], firstRow[2]])
       setSecondRow([secondRow[0], bad, secondRow[2]])
       setThirdRow([thirdRow[0], thirdRow[1], bad])
@@ -204,6 +201,7 @@ const App = () => {
       setThirdRow([bad, thirdRow[1], thirdRow[2]])
       whoWins()
       setEnd(true)
+      // tie
     } else if (firstRow[0] !== 'x' && firstRow[1] !== 'x' && firstRow[2] !== 'x' && secondRow[0] !== 'x' && secondRow[1] !== 'x' && secondRow[2] !== 'x' && thirdRow[0] !== 'x' && thirdRow[1] !== 'x' && thirdRow[2] !== 'x' && end) {
       tieTie()
     }
