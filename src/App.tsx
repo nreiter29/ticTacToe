@@ -28,10 +28,10 @@ const App = () => {
   const [turn, setTurn] = useState('')
   const [end, setEnd] = useState(false)
   const [valueLeftSide, setValue] = useState<string>()
-  let [characterLeftSide, setCharacterLeftSide] = useState(agerFarmer)
-  let [badLeftSide, setBadLeftSide] = useState(badAgerFarmer)
-  let [characterRightSide, setCharacterRightSide] = useState(martinator)
-  let [badRightSide, setBadRightSide] = useState(badMartinator)
+  let characterLeftSide = agerFarmer
+  let badLeftSide = badAgerFarmer
+  let characterRightSide = martinator
+  let badRightSide = badMartinator
   const [valueRightSide, setValueRightSide] = useState<string>()
 
   // handle the value of the select for the left side
