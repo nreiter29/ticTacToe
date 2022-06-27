@@ -264,17 +264,17 @@ const App = () => {
     if (valueLeftSide !== '') {
       if (turn === 'martinator') {
         return (
-          <Img src={characterLeftSide} alt="Ager Farmer" w={['60px', '90px', '130px', '125px']} h={['60px', '90px', '130px', '125px']} filter="grayscale(100%)"/>
+          <Img src={characterLeftSide} alt="Ager Farmer" w={['60px', '90px', '130px', '140px', '250px']} h={['60px', '90px', '130px', '140px', '250px']} filter="grayscale(100%)"/>
         )
       }
       if (turn === '') {
         return (
-          <Img src={characterLeftSide} alt="Ager Farmer" w={['60px', '90px', '130px', '125px']} h={['60px', '90px', '130px', '125px']}/>
+          <Img src={characterLeftSide} alt="Ager Farmer" w={['60px', '90px', '130px', '140px', '250px']} h={['60px', '90px', '130px', '140px', '250px']}/>
         )
       }
       if (turn === 'agerFarmer') {
         return (
-          <Img src={characterLeftSide} alt="Ager Farmer" w={['60px', '90px', '130px', '125px']} h={['60px', '90px', '130px', '125px']}/>
+          <Img src={characterLeftSide} alt="Ager Farmer" w={['60px', '90px', '130px', '140px', '250px']} h={['60px', '90px', '130px', '140px', '250px']}/>
         )
       }
     }
@@ -285,17 +285,17 @@ const App = () => {
     if (valueRightSide !== '') {
       if (turn === 'agerFarmer') {
         return (
-          <Img src={characterRightSide} alt="Martinator" w={['60px', '90px', '130px', '125px']} h={['60px', '90px', '130px', '125px']} filter="grayscale(100%)"/>
+          <Img src={characterRightSide} alt="Martinator" w={['60px', '90px', '130px', '140px', '250px']} h={['60px', '90px', '130px', '140px', '250px']} filter="grayscale(100%)"/>
         )
       }
       if (turn === '') {
         return (
-          <Img src={characterRightSide} alt="Martinator" w={['60px', '90px', '130px', '125px']} h={['60px', '90px', '130px', '125px']}/>
+          <Img src={characterRightSide} alt="Martinator" w={['60px', '90px', '130px', '140px', '250px']} h={['60px', '90px', '130px', '140px', '250px']}/>
         )
       }
       if (turn === 'martinator') {
         return (
-          <Img src={characterRightSide} alt="Martinator" w={['60px', '90px', '130px', '125px']} h={['60px', '90px', '130px', '125px']}/>
+          <Img src={characterRightSide} alt="Martinator" w={['60px', '90px', '130px', '140px', '250px']} h={['60px', '90px', '130px', '140px', '250px']}/>
         )
       }
     }
