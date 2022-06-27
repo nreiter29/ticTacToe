@@ -160,6 +160,7 @@ const App = () => {
     }
   }
 
+  // function for the horizontal win
   const horizontalLineCheck = (rowNumber: number, character: string, badCharacter: string, whoWins: () => void) => {
     if (firstRow[rowNumber] === character && secondRow[rowNumber] === character && thirdRow[rowNumber] === character) {
       whoWins()
@@ -170,6 +171,7 @@ const App = () => {
     }
   }
 
+  // function for the vertical win
   const verticalLineCheck = (row: string[], character: string, badCharacter: string, whoWins: () => void) => {
     if (row[0] === character && row[1] === character && row[2] === character) {
       whoWins()
