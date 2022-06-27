@@ -29,6 +29,7 @@ const App = () => {
   const [agerFarmerCount, setAgerFarmerCount] = useState(0)
   const [turn, setTurn] = useState('')
   const [end, setEnd] = useState(false)
+  const [valueLeftSide, setValue] = useState<string>()
 
   // added rows
   const [firstRow, setFirstRow] = useState(['o', 'o', 'o'])
@@ -264,14 +265,12 @@ const App = () => {
     }
   }
 
-  const [whosNext, setWhosNext] = useState('agerFarmer')
-
   // return
   return (
     <Container w="100vw" h="100vh" maxW="100vw" bgColor="#1A2A33" display="flex" flexDirection="row" padding="0" justifyContent="space-between">
       <Hide below="xl">
         <Box w="33vw" justifyContent="center" alignItems="center" display="flex" flexDir="column">
-          <Select placeholder="Choose your Player" color="#1A2A33" w="300px" textAlign="center" bgColor="#B9CFF0">
+          <Select placeholder="Choose your Player" color="#1A2A33" w="300px" textAlign="center" bgColor="#B9CFF0" value={valueLeftSide} onChange={e => setValue(e.target.value)}>
             <option value="agerFarmer">The Farmer</option>
             <option value="martinator">The Stoner</option>
             <option value="max">The Queen</option>
