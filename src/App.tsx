@@ -322,17 +322,131 @@ const App = () => {
     setValue('AgerFarmer')
   }
 
+  const OptionsLeftSide = () => {
+    if (valueRightSide === 'Martinator') {
+      return (
+        <>
+          <option value="AgerFarmer">The Farmer</option>
+          <option value="Max">The Queen</option>
+          <option value="Alex">The Gay Punk</option>
+          <option value="David">The Stalker</option>
+        </>
+      )
+    } else if (valueRightSide === 'AgerFarmer') {
+      return (
+        <>
+          <option value="Martinator">The Stoner</option>
+          <option value="Max">The Queen</option>
+          <option value="Alex">The Gay Punk</option>
+          <option value="David">The Stalker</option>
+        </>
+      )
+    } else if (valueRightSide === 'Max') {
+      return (
+        <>
+          <option value="AgerFarmer">The Farmer</option>
+          <option value="Max">The Queen</option>
+          <option value="Alex">The Gay Punk</option>
+          <option value="David">The Stalker</option>
+        </>
+      )
+    } else if (valueRightSide === 'Alex') {
+      return (
+        <>
+          <option value="Martinator">The Stoner</option>
+          <option value="Max">The Queen</option>
+          <option value="AgerFarmer">The Farmer</option>
+          <option value="David">The Stalker</option>
+        </>
+      )
+    } else if (valueRightSide === 'David') {
+      return (
+        <>
+          <option value="Martinator">The Stoner</option>
+          <option value="Max">The Queen</option>
+          <option value="AgerFarmer">The Farmer</option>
+          <option value="Alex">The Gay Punk</option>
+        </>
+      )
+    } else {
+      return (
+        <>
+          <option value="AgerFarmer">The Farmer</option>
+          <option value="Martinator">The Stoner</option>
+          <option value="Max">The Queen</option>
+          <option value="Alex">The Gay Punk</option>
+          <option value="David">The Stalker</option>
+        </>
+      )
+    }
+  }
+
+  const OptionsRightSide = () => {
+    if (valueLeftSide === 'Martinator') {
+      return (
+        <>
+          <option value="AgerFarmer">The Farmer</option>
+          <option value="Max">The Queen</option>
+          <option value="Alex">The Gay Punk</option>
+          <option value="David">The Stalker</option>
+        </>
+      )
+    } else if (valueLeftSide === 'AgerFarmer') {
+      return (
+        <>
+          <option value="Martinator">The Stoner</option>
+          <option value="Max">The Queen</option>
+          <option value="Alex">The Gay Punk</option>
+          <option value="David">The Stalker</option>
+        </>
+      )
+    } else if (valueLeftSide === 'Max') {
+      return (
+        <>
+          <option value="AgerFarmer">The Farmer</option>
+          <option value="Max">The Queen</option>
+          <option value="Alex">The Gay Punk</option>
+          <option value="David">The Stalker</option>
+        </>
+      )
+    } else if (valueLeftSide === 'Alex') {
+      return (
+        <>
+          <option value="Martinator">The Stoner</option>
+          <option value="Max">The Queen</option>
+          <option value="AgerFarmer">The Farmer</option>
+          <option value="David">The Stalker</option>
+        </>
+      )
+    } else if (valueLeftSide === 'David') {
+      return (
+        <>
+          <option value="Martinator">The Stoner</option>
+          <option value="Max">The Queen</option>
+          <option value="AgerFarmer">The Farmer</option>
+          <option value="Alex">The Gay Punk</option>
+        </>
+      )
+    } else {
+      return (
+        <>
+          <option value="AgerFarmer">The Farmer</option>
+          <option value="Martinator">The Stoner</option>
+          <option value="Max">The Queen</option>
+          <option value="Alex">The Gay Punk</option>
+          <option value="David">The Stalker</option>
+        </>
+      )
+    }
+  }
+
   // return
   return (
     <Container w="100vw" h="100vh" maxW="100vw" bgColor="#1A2A33" display="flex" flexDirection="row" padding="0" justifyContent="space-between">
       <Hide below="xl">
         <Box w="33vw" justifyContent="center" alignItems="center" display="flex" flexDir="column">
           <Select placeholder="Choose your Player" color="#1A2A33" w="300px" textAlign="center" bgColor="#B9CFF0" value={valueLeftSide} onChange={e => setValue(e.target.value)}>
-            <option value="AgerFarmer">The Farmer</option>
-            <option value="Martinator">The Stoner</option>
-            <option value="Max">The Queen</option>
-            <option value="Alex">The Gay Punk</option>
-            <option value="David">The Stalker</option>
+            <OptionsLeftSide/>
           </Select>
           <Text color="#31C3BD" fontSize="80px" mb="30px">{agerWinCount}</Text>
           {showAgerFarmer()}
@@ -421,11 +535,7 @@ const App = () => {
       <Hide below="xl">
         <Box w="33vw" justifyContent="center" alignItems="center" display="flex" flexDir="column">
           <Select placeholder="Choose your Player" color="#1A2A33" w="300px" textAlign="center" bgColor="#B9CFF0" value={valueRightSide} onChange={e => setValueRightSide(e.target.value)}>
-            <option value="AgerFarmer">The Farmer</option>
-            <option value="Martinator">The Stoner</option>
-            <option value="Max">The Queen</option>
-            <option value="Alex">The Gay Punk</option>
-            <option value="David">The Stalker</option>
+            <OptionsRightSide/>
           </Select>
           <Text color="#31C3BD" fontSize="80px" mb="30px">{martinatorWinCount}</Text>
           {showMartinator()}
