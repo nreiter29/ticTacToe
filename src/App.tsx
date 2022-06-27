@@ -20,7 +20,7 @@ const App = () => {
   const sound = useMemo(() => new Audio(quack), [])
 
   // adding useStates
-  const [start, setStart] = useState(true)
+  let [start, setStart] = useState(true)
   const [count, setCount] = useState(0)
   const [reset, setReset] = useState(false)
   const [martinatorCount, setMartinatorCount] = useState(0)
@@ -28,10 +28,10 @@ const App = () => {
   const [turn, setTurn] = useState('')
   const [end, setEnd] = useState(false)
   const [valueLeftSide, setValue] = useState<string>('')
-  let characterLeftSide = agerFarmer
-  let badLeftSide = badAgerFarmer
-  let characterRightSide = martinator
-  let badRightSide = badMartinator
+  let characterLeftSide: any
+  let badLeftSide: any
+  let characterRightSide: any
+  let badRightSide: any
   const [valueRightSide, setValueRightSide] = useState<string>('')
 
   // handle the value of the select for the left side
@@ -84,7 +84,7 @@ const App = () => {
   const [thirdRow, setThirdRow] = useState(['o', 'o', 'o'])
 
   // added finalend
-  const [finalEnd, setFinalEnd] = useState(false)
+  let [finalEnd, setFinalEnd] = useState(false)
 
   // set image useState
   const [image, setImage] = useState(characterLeftSide)
@@ -321,9 +321,11 @@ const App = () => {
   }
 
   // feature that you cant use the same character twice
-  if (characterLeftSide === characterRightSide) {
-    setValueRightSide('Martinator')
-    setValue('AgerFarmer')
+  if (valueLeftSide !== '' && valueRightSide !== '') {
+    if (characterLeftSide === characterRightSide) {
+      setValueRightSide('Martinator')
+      setValue('AgerFarmer')
+    }
   }
 
   // options for the Left Side
@@ -446,6 +448,11 @@ const App = () => {
     }
   }
 
+  if (valueLeftSide === '' || valueRightSide === '') {
+    finalEnd = true
+    start = true
+  }
+
   // return
   return (
     <Container w="100vw" h="100vh" maxW="100vw" bgColor="#1A2A33" display="flex" flexDirection="row" padding="0" justifyContent="space-between">
@@ -454,7 +461,7 @@ const App = () => {
           <Select placeholder="Choose your Player" color="#1A2A33" w="300px" textAlign="center" bgColor="#B9CFF0" value={valueLeftSide} onChange={e => setValue(e.target.value)}>
             <OptionsLeftSide/>
           </Select>
-          <Text color="#31C3BD" fontSize="80px" mb="30px">{agerWinCount}</Text>
+          <Text color="#31C3BD" fontSize="80px" mb="0px">{agerWinCount}</Text>
           {showAgerFarmer()}
         </Box>
       </Hide>
@@ -543,8 +550,10 @@ const App = () => {
           <Select placeholder="Choose your Player" color="#1A2A33" w="300px" textAlign="center" bgColor="#B9CFF0" value={valueRightSide} onChange={e => setValueRightSide(e.target.value)}>
             <OptionsRightSide/>
           </Select>
-          <Text color="#31C3BD" fontSize="80px" mb="30px">{martinatorWinCount}</Text>
-          {showMartinator()}
+          <Text color="#31C3BD" fontSize="80px" mb="0px">{martinatorWinCount}</Text>
+          <Box>
+            {showMartinator()}
+          </Box>
         </Box>
         <Img src="https://deepsource.io/gh/nreiter29/ticTacToe.svg/?label=active+issues&show_trend=true&token=9XtQOWOsWsEbL-yPWEf70JPy)%5D(https://deepsource.io/gh/nreiter29/ticTacToe/?ref=repository-badge" w="400px" position="absolute" left="full" right="25px" top="full" bottom="25px"/>
       </Hide>
