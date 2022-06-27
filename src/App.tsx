@@ -266,12 +266,12 @@ const App = () => {
     if (valueLeftSide !== '' && valueRightSide !== '') {
       if (turn === 'agerFarmer') {
         return (
-          <Text color="white" fontSize={['18px', '25px', '35px', '35px', '50px']} mb="50px">{valueLeftSide} it's your turn!</Text>
+          <Text color="white" fontSize={['18px', '25px', '35px', '35px', '50px']} mb="50px">{valueLeftSide} it&apos;s your turn!</Text>
         )
       }
       if (turn === 'martinator') {
         return (
-          <Text color="white" fontSize={['18px', '25px', '35px', '35px', '50px']} mb="50px">{valueRightSide} it's your turn!</Text>
+          <Text color="white" fontSize={['18px', '25px', '35px', '35px', '50px']} mb="50px">{valueRightSide} it&apos;s your turn!</Text>
         )
       }
       if (turn === '') {
