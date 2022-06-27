@@ -322,6 +322,7 @@ const App = () => {
     setValue('AgerFarmer')
   }
 
+  // options for the Left Side
   const OptionsLeftSide = () => {
     if (valueRightSide === 'Martinator') {
       return (
@@ -381,6 +382,7 @@ const App = () => {
     }
   }
 
+  // options for the Right Side
   const OptionsRightSide = () => {
     if (valueLeftSide === 'Martinator') {
       return (
