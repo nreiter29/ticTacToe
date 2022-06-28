@@ -268,20 +268,20 @@ const App = () => {
     if (valueLeftSide !== '' && valueRightSide !== '') {
       if (turn === 'agerFarmer') {
         return (
-          <Text color="white" fontSize={['18px', '25px', '35px', '35px', '50px']} mb="50px">{valueLeftSide} it&apos;s your turn!</Text>
+          <Text color="white" fontSize={['18px', '25px', '35px', '35px', '42px']} mb="30px">{valueLeftSide} it&apos;s your turn!</Text>
         )
       }
       if (turn === 'martinator') {
         return (
-          <Text color="white" fontSize={['18px', '25px', '35px', '35px', '50px']} mb="50px">{valueRightSide} it&apos;s your turn!</Text>
+          <Text color="white" fontSize={['18px', '25px', '35px', '35px', '42px']} mb="30px">{valueRightSide} it&apos;s your turn!</Text>
         )
       }
       if (turn === '') {
         return (
-          <Text color="white" fontSize={['18px', '25px', '35px', '35px', '50px']} mb="50px">Click to start the game!</Text>
+          <Text color="white" fontSize={['18px', '25px', '35px', '35px', '42px']} mb="30px">Click to start the game!</Text>
         )
       }
-    } return <Text color="white" fontSize={['18px', '25px', '35px', '35px', '50px']} mb="50px">First choose a Player!</Text>
+    } return <Text color="white" fontSize={['18px', '25px', '35px', '35px', '42px']} mb="30px">First choose a Player!</Text>
   }
 
   // feature that you cant use the same character twice
@@ -350,9 +350,9 @@ const App = () => {
       </Hide>
       <Box textAlign="center" ml="auto" mr="auto" mt="auto" mb="auto">
         <Box>
-          <Heading color="#B9CFF0" fontSize={['50px', '70px', '90px', '90px', '150px']} fontFamily="sans-serif" fontWeight={500} mt="20px">TicTacToe</Heading>
+          <Heading color="#B9CFF0" fontSize={['50px', '70px', '90px', '90px', '120px']} fontFamily="sans-serif" fontWeight={500} mt="20px">TicTacToe</Heading>
         </Box>
-        <Box display="flex" justifyContent="space-evenly" fontSize={['30px', '40px', '60px', '60px', '80px']} w="340px" ml="auto" mr="auto" mb="0px">
+        <Box display="flex" justifyContent="space-evenly" fontSize={['30px', '40px', '60px', '60px', '60px']} w="340px" ml="auto" mr="auto" mb="0px">
           <Text color="white">Round</Text>
           <Text color="#31C3BD">{round}</Text>
         </Box>
