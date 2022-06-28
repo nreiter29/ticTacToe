@@ -163,22 +163,44 @@ const App = () => {
   // function for the horizontal win
   const horizontalLineCheck = (rowNumber: number, character: string, badCharacter: string, whoWins: () => void) => {
     if (firstRow[rowNumber] === character && secondRow[rowNumber] === character && thirdRow[rowNumber] === character) {
-      whoWins()
-      setEnd(true)
-      firstRow[rowNumber] = badCharacter
-      secondRow[rowNumber] = badCharacter
-      thirdRow[rowNumber] = badCharacter
+      if (rowNumber === 0) {
+        setFirstRow([badCharacter, firstRow[1], firstRow[2]])
+        setSecondRow([badCharacter, secondRow[1], secondRow[2]])
+        setThirdRow([badCharacter, thirdRow[1], thirdRow[2]])
+        whoWins()
+        setEnd(true)
+      } else if (rowNumber === 1) {
+        setFirstRow([firstRow[0], badCharacter, firstRow[2]])
+        setSecondRow([secondRow[0], badCharacter, secondRow[2]])
+        setThirdRow([thirdRow[0], badCharacter, thirdRow[2]])
+        whoWins()
+        setEnd(true)
+      } else if (rowNumber === 2) {
+        setFirstRow([firstRow[0], firstRow[1], badCharacter])
+        setSecondRow([secondRow[0], secondRow[1], badCharacter])
+        setThirdRow([thirdRow[0], thirdRow[1], badCharacter])
+        whoWins()
+        setEnd(true)
+      }
     }
   }
 
   // function for the vertical win
   const verticalLineCheck = (row: string[], character: string, badCharacter: string, whoWins: () => void) => {
     if (row[0] === character && row[1] === character && row[2] === character) {
-      whoWins()
-      setEnd(true)
-      row[0] = badCharacter
-      row[1] = badCharacter
-      row[2] = badCharacter
+      if (row === firstRow) {
+        setFirstRow([badCharacter, badCharacter, badCharacter])
+        whoWins()
+        setEnd(true)
+      } else if (row === secondRow) {
+        setSecondRow([badCharacter, badCharacter, badCharacter])
+        whoWins()
+        setEnd(true)
+      } else if (row === thirdRow) {
+        setThirdRow([badCharacter, badCharacter, badCharacter])
+        whoWins()
+        setEnd(true)
+      }
     }
   }
 
