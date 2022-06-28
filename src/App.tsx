@@ -297,15 +297,15 @@ const App = () => {
     return (
       <>
         {valueRightSide !== 'AgerFarmer' &&
-          <option value="AgerFarmer">The Farmer</option>}
+          <option value="AgerFarmer">Dominik</option>}
         {valueRightSide !== 'Martinator' &&
-          <option value="Martinator">The Stoner</option>}
+          <option value="Martinator">Martin</option>}
         {valueRightSide !== 'Max' &&
-          <option value="Max">The Queen</option>}
+          <option value="Max">Max</option>}
         {valueRightSide !== 'Alex' &&
-          <option value="Alex">The Gay Punk</option>}
+          <option value="Alex">Alex</option>}
         {valueRightSide !== 'David' &&
-          <option value="David">The Stalker</option>}
+          <option value="David">David</option>}
       </>
     )
   }
@@ -315,15 +315,15 @@ const App = () => {
     return (
       <>
         {valueLeftSide !== 'AgerFarmer' &&
-          <option value="AgerFarmer">The Farmer</option>}
+          <option value="AgerFarmer">Dominik</option>}
         {valueLeftSide !== 'Martinator' &&
-          <option value="Martinator">The Stoner</option>}
+          <option value="Martinator">Martin</option>}
         {valueLeftSide !== 'Max' &&
-          <option value="Max">The Queen</option>}
+          <option value="Max">Max</option>}
         {valueLeftSide !== 'Alex' &&
-          <option value="Alex">The Gay Punk</option>}
+          <option value="Alex">Alex</option>}
         {valueLeftSide !== 'David' &&
-          <option value="David">The Stalker</option>}
+          <option value="David">David</option>}
       </>
     )
   }
