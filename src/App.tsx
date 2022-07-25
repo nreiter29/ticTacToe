@@ -13,6 +13,8 @@ import max from '../assets/maxDerGroße.png'
 import maxTheQueen from '../assets/maxDieGroßeQueen.png'
 import david from '../assets/davidDerWildeHengst.png'
 import davidTheStalker from '../assets/daviDerBadHengst.png'
+import matthias from '../assets/matthias.png'
+import badMatthias from '../assets/goigner.png'
 
 // App component
 const App = () => {
@@ -55,6 +57,10 @@ const App = () => {
     characterLeftSide = alex
     badLeftSide = badAlex
   }
+  if (valueLeftSide === 'Matthias') {
+    characterLeftSide = matthias
+    badLeftSide = badMatthias
+  }
 
   // handle the value of the select for the right side
   if (valueRightSide === 'Martinator') {
@@ -76,6 +82,10 @@ const App = () => {
   if (valueRightSide === 'Alex') {
     characterRightSide = alex
     badRightSide = badAlex
+  }
+  if (valueRightSide === 'Matthias') {
+    characterRightSide = matthias
+    badRightSide = badMatthias
   }
 
   // added rows
@@ -328,6 +338,8 @@ const App = () => {
           <option value="Alex">Alex</option>}
         {valueRightSide !== 'David' &&
           <option value="David">David</option>}
+        {valueRightSide !== 'Matthias' &&
+          <option value="Matthias">Matthias</option>}
       </>
     )
   }
@@ -346,6 +358,8 @@ const App = () => {
           <option value="Alex">Alex</option>}
         {valueLeftSide !== 'David' &&
           <option value="David">David</option>}
+        {valueLeftSide !== 'Matthias' &&
+          <option value="Matthias">Matthias</option>}
       </>
     )
   }

@@ -14,6 +14,7 @@
     "@undefined/lint": "github:JohnDeved/undefined-lint",
     "framer-motion": "^6.3.11",
     "module-name": "^0.0.1-security",
+    "next-images": "^1.8.4",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-hook-form": "^7.33.0",
@@ -23,6 +24,7 @@
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@vitejs/plugin-react": "^1.3.0",
+    "cypress": "^10.2.0",
     "react-require": "^1.0.1",
     "typescript": "^4.6.3",
     "vite": "^2.9.9"
